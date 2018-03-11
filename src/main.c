@@ -60,12 +60,13 @@ DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim2;
 
-osThreadId defaultTaskHandle;
+osThreadId ADCTaskHandle;
 osThreadId indicatorTaskHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint32_t ADCBuffer[ADC_BUFFER_LENGTH];
+uint32_t adc_buffer[ADC_BUFFER_LENGTH];
+uint32_t counter;
 
 /* USER CODE END PV */
 
@@ -75,7 +76,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
-void StartDefaultTask(void const * argument);
+void StartADCTask(void const * argument);
 void StartIndicatorTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
@@ -136,9 +137,9 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  /* definition and creation of ADCTask */
+  osThreadDef(ADCTask, StartADCTask, osPriorityNormal, 0, 128);
+  ADCTaskHandle = osThreadCreate(osThread(ADCTask), NULL);
 
   /* definition and creation of indicatorTask */
   osThreadDef(indicatorTask, StartIndicatorTask, osPriorityNormal, 0, 128);
@@ -245,7 +246,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START; //ADC_EXTERNALTRIGCONV_T2_TRGO;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DMAContinuousRequests = ENABLE;
@@ -383,15 +384,16 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE END 4 */
 
-/* StartDefaultTask function */
-void StartDefaultTask(void const * argument)
+/* StartADCTask function */
+void StartADCTask(void const * argument)
 {
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
+	HAL_TIM_Base_Start_IT(&htim2);
+
   for(;;)
   {
-	printf("Here is Default task.\n");
     osDelay(2000);
   }
   /* USER CODE END 5 */ 
@@ -404,7 +406,7 @@ void StartIndicatorTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(3000);
   }
   /* USER CODE END StartIndicatorTask */
 }
@@ -426,15 +428,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-  uint32_t ADCValue;
-  if (htim->Instance == TIM2) {
-//    HAL_IncTick();
-	    HAL_ADC_Start_DMA(&hadc1, ADCBuffer, ADC_BUFFER_LENGTH);
-
-  }
-
 
   /* USER CODE END Callback 1 */
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+	counter++;
+
 }
 
 /**
