@@ -46,12 +46,11 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -67,7 +66,8 @@ osThreadId indicatorTaskHandle;
 /* Private variables ---------------------------------------------------------*/
 uint32_t adc_buffer[ADC_BUFFER_LENGTH];
 uint32_t adc_counter = 0;
-uint32_t *cur_buffer;
+int32_t *cur_buffer;
+int32_t average = 0;
 TAssignedWork work_with = NONE;
 
 /* USER CODE END PV */
@@ -89,6 +89,10 @@ void StartIndicatorTask(void const * argument);
 /* USER CODE BEGIN 0 */
 void assign_work(TAssignedWork assignement);
 TAssignedWork get_work(void);
+int32_t get_average(int32_t *buffer, uint32_t length);
+void sub_average(int32_t average, int32_t *buffer, uint32_t length);
+void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_tap);
+
 /* USER CODE END 0 */
 
 /**
@@ -398,11 +402,13 @@ void StartADCTask(void const * argument)
   for(;;)
   {
 //    osDelay(2000);
-	  while (NONE == work_with){};
-	  cur_buffer = &adc_buffer[ADC_BUFFER_LENGTH_HALF * work_with];
+	  while (NONE == get_work()){};
+	  cur_buffer = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
 	  assign_work(NONE);
 
-
+	  average = get_average(cur_buffer, ADC_BUFFER_LENGTH_HALF);
+	  sub_average(average, cur_buffer, ADC_BUFFER_LENGTH_HALF);
+	  apply_filter(cur_buffer, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
   }
   /* USER CODE END 5 */ 
 }
@@ -469,6 +475,45 @@ void assign_work(TAssignedWork assignement)
 TAssignedWork get_work(void)
 {
 	return work_with;
+}
+
+int32_t get_average(int32_t *buffer, uint32_t length)
+{
+	int32_t accumulator = 0;
+	uint32_t i;
+	for (i = 0; i < length; ++i)
+	{
+		buffer[i] &= 0xFFFF;
+		accumulator += buffer[i];
+	}
+	return (accumulator / length);
+}
+
+void sub_average(int32_t average, int32_t *buffer, uint32_t length)
+{
+	uint32_t i;
+	for (i = 0; i < length; ++i)
+	{
+		buffer[i] -= average;
+	}
+}
+
+void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_tap)
+{
+	FIRFilter f;
+	uint32_t i;
+
+	FIRFilter_init(&f);
+	for (i = 0; i < filter_tap; ++i)
+	{
+		FIRFilter_put(&f, buffer[i]);
+	}
+
+	for (i = 0; i < length - filter_tap; ++i)
+	{
+		buffer[i] = FIRFilter_get(&f);
+		FIRFilter_put(&f, buffer[i + filter_tap]);
+	}
 }
 
 /**

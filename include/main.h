@@ -54,6 +54,7 @@
 /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
+#include "FIRFilter.h"
 
 /* USER CODE END Includes */
 
@@ -67,7 +68,8 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
-#define ADC_BUFFER_LENGTH_HALF (4096)
+#define ADC_MEASURE_COUNT (4096)
+#define ADC_BUFFER_LENGTH_HALF (ADC_MEASURE_COUNT + FIRFILTER_TAP_NUM)
 #define ADC_BUFFER_LENGTH (ADC_BUFFER_LENGTH_HALF*2)
 typedef enum {FIRSTHALF = 0
 	, SECONDHALF = 1

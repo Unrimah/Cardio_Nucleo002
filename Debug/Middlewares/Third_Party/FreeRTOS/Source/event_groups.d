@@ -1,7 +1,7 @@
 Middlewares/Third_Party/FreeRTOS/Source/event_groups.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../include/FreeRTOSConfig.h ../include/main.h \
+ ../include/FreeRTOSConfig.h ../include/main.h ../include/FIRFilter.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -19,6 +19,8 @@ Middlewares/Third_Party/FreeRTOS/Source/event_groups.o: \
 ../include/FreeRTOSConfig.h:
 
 ../include/main.h:
+
+../include/FIRFilter.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
