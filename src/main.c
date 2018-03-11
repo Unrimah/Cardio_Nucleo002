@@ -65,6 +65,7 @@ osThreadId indicatorTaskHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
+uint32_t ADCBuffer[ADC_BUFFER_LENGTH];
 
 /* USER CODE END PV */
 
@@ -390,7 +391,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  printf("Here is Default task.\n");
+	printf("Here is Default task.\n");
     osDelay(2000);
   }
   /* USER CODE END 5 */ 
@@ -425,6 +426,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
+  uint32_t ADCValue;
+  if (htim->Instance == TIM2) {
+//    HAL_IncTick();
+	    HAL_ADC_Start_DMA(&hadc1, ADCBuffer, ADC_BUFFER_LENGTH);
+
+  }
+
 
   /* USER CODE END Callback 1 */
 }

@@ -67,7 +67,10 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
-
+#define ADC_BUFFER_HALF_LENGTH (2048)
+#define ADC_BUFFER_LENGTH (ADC_BUFFER_HALF_LENGTH*2)
+enum {FIRSTHALF, SECONDHALF};
+int filling_buf;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
