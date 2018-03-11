@@ -67,7 +67,12 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
-#define ADC_BUFFER_LENGTH (8192)
+#define ADC_BUFFER_LENGTH_HALF (4096)
+#define ADC_BUFFER_LENGTH (ADC_BUFFER_LENGTH_HALF*2)
+typedef enum {FIRSTHALF = 0
+	, SECONDHALF = 1
+	, NONE}
+TAssignedWork;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

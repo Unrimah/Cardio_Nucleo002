@@ -66,7 +66,9 @@ osThreadId indicatorTaskHandle;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint32_t adc_buffer[ADC_BUFFER_LENGTH];
-uint32_t counter;
+uint32_t adc_counter = 0;
+uint32_t *cur_buffer;
+TAssignedWork work_with = NONE;
 
 /* USER CODE END PV */
 
@@ -85,7 +87,8 @@ void StartIndicatorTask(void const * argument);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-
+void assign_work(TAssignedWork assignement);
+TAssignedWork get_work(void);
 /* USER CODE END 0 */
 
 /**
@@ -390,11 +393,16 @@ void StartADCTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-	HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_Base_Start_IT(&htim2);
 
   for(;;)
   {
-    osDelay(2000);
+//    osDelay(2000);
+	  while (NONE == work_with){};
+	  cur_buffer = &adc_buffer[ADC_BUFFER_LENGTH_HALF * work_with];
+	  assign_work(NONE);
+
+
   }
   /* USER CODE END 5 */ 
 }
@@ -434,8 +442,33 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	counter++;
+	if (adc_counter < ADC_BUFFER_LENGTH-1)
+	{
+		++adc_counter;
+	}
+	else
+	{
+		adc_counter = 0;
+	}
 
+	if (ADC_BUFFER_LENGTH_HALF == adc_counter)
+	{
+		assign_work(FIRSTHALF);
+	}
+	if (0 == adc_counter)
+	{
+		assign_work(SECONDHALF);
+	}
+}
+
+void assign_work(TAssignedWork assignement)
+{
+	work_with = assignement;
+}
+
+TAssignedWork get_work(void)
+{
+	return work_with;
 }
 
 /**
