@@ -92,6 +92,7 @@ TAssignedWork get_work(void);
 int32_t get_average(int32_t *buffer, uint32_t length);
 void sub_average(int32_t average, int32_t *buffer, uint32_t length);
 void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_tap);
+void apply_window(int32_t *buffer, const uint32_t length);
 
 /* USER CODE END 0 */
 
@@ -267,7 +268,7 @@ static void MX_ADC1_Init(void)
     */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -409,6 +410,7 @@ void StartADCTask(void const * argument)
 	  average = get_average(cur_buffer, ADC_BUFFER_LENGTH_HALF);
 	  sub_average(average, cur_buffer, ADC_BUFFER_LENGTH_HALF);
 	  apply_filter(cur_buffer, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
+	  apply_window(cur_buffer, ADC_MEASURE_COUNT);
   }
   /* USER CODE END 5 */ 
 }
@@ -516,6 +518,19 @@ void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_
 	}
 }
 
+void apply_window(int32_t *buffer, const uint32_t length)
+{
+	int32_t a = (length - 1) / 2;
+	int32_t w;
+	int32_t n;
+
+	for (n = 0; n < length; ++n)
+	{
+		w = 65536 - abs((65536  *n) / a - 65536);
+		buffer[n] = (buffer[n] * w) / 65536;
+	}
+
+}
 /**
   * @brief  This function is executed in case of error occurrence.
   * @param  file: The file name as string.
