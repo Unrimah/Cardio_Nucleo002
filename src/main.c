@@ -89,10 +89,6 @@ void StartIndicatorTask(void const * argument);
 /* USER CODE BEGIN 0 */
 void assign_work(TAssignedWork assignement);
 TAssignedWork get_work(void);
-int32_t get_average(int32_t *buffer, uint32_t length);
-void sub_average(int32_t average, int32_t *buffer, uint32_t length);
-void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_tap);
-void apply_window(int32_t *buffer, const uint32_t length);
 
 /* USER CODE END 0 */
 
@@ -479,58 +475,6 @@ TAssignedWork get_work(void)
 	return work_with;
 }
 
-int32_t get_average(int32_t *buffer, uint32_t length)
-{
-	int32_t accumulator = 0;
-	uint32_t i;
-	for (i = 0; i < length; ++i)
-	{
-		buffer[i] &= 0xFFFF;
-		accumulator += buffer[i];
-	}
-	return (accumulator / length);
-}
-
-void sub_average(int32_t average, int32_t *buffer, uint32_t length)
-{
-	uint32_t i;
-	for (i = 0; i < length; ++i)
-	{
-		buffer[i] -= average;
-	}
-}
-
-void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_tap)
-{
-	FIRFilter f;
-	uint32_t i;
-
-	FIRFilter_init(&f);
-	for (i = 0; i < filter_tap; ++i)
-	{
-		FIRFilter_put(&f, buffer[i]);
-	}
-
-	for (i = 0; i < length - filter_tap; ++i)
-	{
-		buffer[i] = FIRFilter_get(&f);
-		FIRFilter_put(&f, buffer[i + filter_tap]);
-	}
-}
-
-void apply_window(int32_t *buffer, const uint32_t length)
-{
-	int32_t a = (length - 1) / 2;
-	int32_t w;
-	int32_t n;
-
-	for (n = 0; n < length; ++n)
-	{
-		w = 65536 - abs((65536  *n) / a - 65536);
-		buffer[n] = (buffer[n] * w) / 65536;
-	}
-
-}
 /**
   * @brief  This function is executed in case of error occurrence.
   * @param  file: The file name as string.

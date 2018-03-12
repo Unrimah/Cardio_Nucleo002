@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/FIRFilter.c \
+../src/dsp_func.c \
 ../src/freertos.c \
 ../src/main.c \
 ../src/stm32f4xx_hal_msp.c \
@@ -13,6 +14,7 @@ C_SRCS += \
 
 OBJS += \
 ./src/FIRFilter.o \
+./src/dsp_func.o \
 ./src/freertos.o \
 ./src/main.o \
 ./src/stm32f4xx_hal_msp.o \
@@ -21,6 +23,7 @@ OBJS += \
 
 C_DEPS += \
 ./src/FIRFilter.d \
+./src/dsp_func.d \
 ./src/freertos.d \
 ./src/main.d \
 ./src/stm32f4xx_hal_msp.d \

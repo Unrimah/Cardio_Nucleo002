@@ -9,8 +9,8 @@ system/src/diag/trace_impl.o: ../system/src/diag/trace_impl.c \
  ../system/include/cmsis/core_cmSimd.h \
  ../system/include/cmsis/device/system_stm32f4xx.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal.h \
- ../include/stm32f4xx_hal_conf.h ../include/main.h ../include/FIRFilter.h \
- ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h \
+ ../include/stm32f4xx_hal_conf.h ../include/main.h ../include/dsp_func.h \
+ ../include/FIRFilter.h ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_def.h \
  ../system/include/stm32f4-hal/Legacy/stm32_hal_legacy.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_rcc_ex.h \
@@ -53,6 +53,8 @@ system/src/diag/trace_impl.o: ../system/src/diag/trace_impl.c \
 ../include/stm32f4xx_hal_conf.h:
 
 ../include/main.h:
+
+../include/dsp_func.h:
 
 ../include/FIRFilter.h:
 
