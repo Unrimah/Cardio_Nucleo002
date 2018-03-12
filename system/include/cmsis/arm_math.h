@@ -1,3 +1,5 @@
+#define ARM_MATH_CM4
+
 /* ----------------------------------------------------------------------
 * Copyright (C) 2010-2015 ARM Limited. All rights reserved.
 *

@@ -65,8 +65,10 @@ osThreadId indicatorTaskHandle;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint32_t adc_buffer[ADC_BUFFER_LENGTH];
+float32_t FFT_buffer[ADC_MEASURE_COUNT * 2];
 uint32_t adc_counter = 0;
-int32_t *cur_buffer;
+int32_t *cur_buffer_i;
+float32_t *cur_buffer_f;
 int32_t average = 0;
 TAssignedWork work_with = NONE;
 
@@ -400,13 +402,14 @@ void StartADCTask(void const * argument)
   {
 //    osDelay(2000);
 	  while (NONE == get_work()){};
-	  cur_buffer = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
+	  cur_buffer_i = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
 	  assign_work(NONE);
 
-	  average = get_average(cur_buffer, ADC_BUFFER_LENGTH_HALF);
-	  sub_average(average, cur_buffer, ADC_BUFFER_LENGTH_HALF);
-	  apply_filter(cur_buffer, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
-	  apply_window(cur_buffer, ADC_MEASURE_COUNT);
+	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
+	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
+	  apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
+	  cur_buffer_f = apply_window(cur_buffer_i, ADC_MEASURE_COUNT);
+	  apply_fft(cur_buffer_f, FFT_buffer, ADC_MEASURE_COUNT);
   }
   /* USER CODE END 5 */ 
 }

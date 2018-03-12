@@ -31,7 +31,11 @@ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F \
 Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
+src/CommonTables \
+src/ComplexMathFunctions \
 src \
+src/FastMathFunctions \
+src/TransformFunctions \
 system/src/cmsis \
 system/src/cortexm \
 system/src/diag \

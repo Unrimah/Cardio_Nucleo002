@@ -13,6 +13,10 @@ RM := rm -rf
 -include system/src/diag/subdir.mk
 -include system/src/cortexm/subdir.mk
 -include system/src/cmsis/subdir.mk
+-include src/TransformFunctions/subdir.mk
+-include src/FastMathFunctions/subdir.mk
+-include src/ComplexMathFunctions/subdir.mk
+-include src/CommonTables/subdir.mk
 -include src/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
