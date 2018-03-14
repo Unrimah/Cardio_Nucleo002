@@ -6,6 +6,9 @@ src/main.o: ../src/main.c ../system/include/stm32f4-hal/stm32f4xx_hal.h \
  ../system/include/cmsis/cmsis_gcc.h \
  ../system/include/cmsis/core_cmFunc.h \
  ../system/include/cmsis/core_cmSimd.h \
+ ../system/include/cmsis/arm_const_structs.h \
+ ../system/include/cmsis/arm_math.h \
+ ../system/include/cmsis/arm_common_tables.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_def.h \
  ../system/include/cmsis/device/stm32f4xx.h \
@@ -68,6 +71,12 @@ src/main.o: ../src/main.c ../system/include/stm32f4-hal/stm32f4xx_hal.h \
 ../system/include/cmsis/core_cmFunc.h:
 
 ../system/include/cmsis/core_cmSimd.h:
+
+../system/include/cmsis/arm_const_structs.h:
+
+../system/include/cmsis/arm_math.h:
+
+../system/include/cmsis/arm_common_tables.h:
 
 ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h:
 

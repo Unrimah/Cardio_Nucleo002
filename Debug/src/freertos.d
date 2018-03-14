@@ -7,6 +7,9 @@ src/freertos.o: ../src/freertos.c \
  ../system/include/cmsis/cmsis_gcc.h \
  ../system/include/cmsis/core_cmFunc.h \
  ../system/include/cmsis/core_cmSimd.h \
+ ../system/include/cmsis/arm_const_structs.h \
+ ../system/include/cmsis/arm_math.h \
+ ../system/include/cmsis/arm_common_tables.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -36,6 +39,12 @@ src/freertos.o: ../src/freertos.c \
 ../system/include/cmsis/core_cmFunc.h:
 
 ../system/include/cmsis/core_cmSimd.h:
+
+../system/include/cmsis/arm_const_structs.h:
+
+../system/include/cmsis/arm_math.h:
+
+../system/include/cmsis/arm_common_tables.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 

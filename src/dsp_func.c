@@ -46,23 +46,52 @@ void apply_filter(int32_t *buffer, const uint32_t length, const uint32_t filter_
 	}
 }
 
-float32_t *apply_window(int32_t *buffer_i, const uint32_t length)
+q15_t *apply_window(int32_t *buffer_i, const uint32_t length)
 {
 	int32_t a = (length - 1) / 2;
 	int32_t w;
 	uint32_t n;
-	float32_t *buffer_f = (float32_t*) buffer_i;
+//	float32_t *buffer_f = (float32_t*) buffer_i;
+	q15_t *buffer_q15 = (q15_t*) buffer_i;
 
 	for (n = 0; n < length; ++n)
 	{
 		w = 65536 - abs((65536 * n) / a - 65536);
-		buffer_f[n] = (float) (buffer_i[n] * w) / 65536;
+//		buffer_f[n] = (float) (buffer_i[n] * w) / 65536;
+		buffer_q15[2 * n] = (buffer_i[n] * w) / 65536;
+		buffer_q15[2 * n + 1] = 0;
 	}
-	return buffer_f;
+	return buffer_q15;
 }
 
-uint32_t apply_fft(float32_t *buffer_src, float32_t *buffer_dst, const uint32_t length)
+uint32_t apply_fft(q15_t *buffer_src, q15_t *buffer_dst, const uint32_t fftSize)
 {
+	uint32_t maxIndex = 0;
+	q15_t maxValue;
+//	uint32_t fftSize = ADC_MEASURE_COUNT; //4096
+	uint32_t ifftFlag = 0;
+	uint32_t doBitReverse = 1;
+
+	switch (fftSize)
+	{
+	case 4096:
+		break;
+	default:
+	    _Error_Handler(__FILE__, __LINE__);
+
+	}
+	  /* Process the data through the CFFT/CIFFT module */
+	  arm_cfft_q15(&arm_cfft_sR_q15_len4096, buffer_src, ifftFlag, doBitReverse);
+
+	  /* Process the data through the Complex Magnitude Module for
+	  calculating the magnitude at each bin */
+	  arm_cmplx_mag_q15(buffer_src, buffer_dst, fftSize);
+
+	  /* Calculates maxValue and returns corresponding BIN value */
+	  arm_max_q15(buffer_dst, fftSize, &maxValue, &maxIndex);
+
+	  return maxIndex;
+/*
 	arm_status rfft_status;
 	arm_rfft_fast_instance_f32 S;
 
@@ -70,10 +99,9 @@ uint32_t apply_fft(float32_t *buffer_src, float32_t *buffer_dst, const uint32_t 
 
 	if(rfft_status == ARM_MATH_SUCCESS)
 	{
-	    arm_rfft_fast_f32(&S, buffer_src, buffer_dst, 0);//выполнение БФП
+	    arm_cfft_q15(&S, buffer_src, buffer_dst, 0);//выполнение БФП
 	    arm_cmplx_mag_q15(buffer_dst, buffer_src, ADC_MEASURE_COUNT);//вычисляем амплитуды гармоник
 	}
+*/
 
-
-return 0;
 }

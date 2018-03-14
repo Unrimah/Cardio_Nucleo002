@@ -12,6 +12,9 @@ system/src/diag/trace_impl.o: ../system/src/diag/trace_impl.c \
  ../include/stm32f4xx_hal_conf.h ../include/main.h ../include/dsp_func.h \
  ../include/FIRFilter.h ../system/include/cmsis/arm_math.h \
  ../system/include/cmsis/core_cm4.h \
+ ../system/include/cmsis/arm_const_structs.h \
+ ../system/include/cmsis/arm_math.h \
+ ../system/include/cmsis/arm_common_tables.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_def.h \
  ../system/include/stm32f4-hal/Legacy/stm32_hal_legacy.h \
@@ -63,6 +66,12 @@ system/src/diag/trace_impl.o: ../system/src/diag/trace_impl.c \
 ../system/include/cmsis/arm_math.h:
 
 ../system/include/cmsis/core_cm4.h:
+
+../system/include/cmsis/arm_const_structs.h:
+
+../system/include/cmsis/arm_math.h:
+
+../system/include/cmsis/arm_common_tables.h:
 
 ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h:
 

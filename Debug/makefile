@@ -14,6 +14,7 @@ RM := rm -rf
 -include system/src/cortexm/subdir.mk
 -include system/src/cmsis/subdir.mk
 -include src/TransformFunctions/subdir.mk
+-include src/StatisticsFunctions/subdir.mk
 -include src/FastMathFunctions/subdir.mk
 -include src/ComplexMathFunctions/subdir.mk
 -include src/CommonTables/subdir.mk

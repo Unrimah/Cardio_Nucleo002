@@ -64,12 +64,12 @@ osThreadId indicatorTaskHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint32_t adc_buffer[ADC_BUFFER_LENGTH];
-float32_t FFT_buffer[ADC_MEASURE_COUNT * 2];
-uint32_t adc_counter = 0;
-int32_t *cur_buffer_i;
-float32_t *cur_buffer_f;
-int32_t average = 0;
+uint32_t      adc_buffer[ADC_BUFFER_LENGTH];
+q15_t         mag_buffer[ADC_MEASURE_COUNT];
+uint32_t      adc_counter = 0;
+int32_t      *cur_buffer_i;
+q15_t        *cur_buffer_q15;
+int32_t       average = 0;
 TAssignedWork work_with = NONE;
 
 /* USER CODE END PV */
@@ -396,20 +396,52 @@ void StartADCTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  HAL_TIM_Base_Start_IT(&htim2);
-
+#ifndef _SIMULATION_
+	HAL_TIM_Base_Start_IT(&htim2);
+#else
+	assign_work(FIRSTHALF);
+	srand((unsigned int)time(NULL));
+#endif
   for(;;)
   {
 //    osDelay(2000);
+#ifdef _SIMULATION_
+	  int i;
+	  int a;
+	  for ( i = 0; i < ADC_BUFFER_LENGTH_HALF; ++i)
+	  {
+	  	a = 0;
+	  	a += CONST_LEVEL * SCALE / SIGNAL_RANGE;
+//	  	a += (AMP1 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ1 / ADC_FREQ );
+//	  	a += (AMP2 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ2 / ADC_FREQ );
+//	  	a += (AMP3 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ3 / ADC_FREQ );
+	  	a += (AMP_T * SCALE / SIGNAL_RANGE) * sin( 2 * PI * i * (FREQ_T + (VFREQ_T / ADC_FREQ)) / ADC_FREQ );
+//	  	a += ((rand() % AMP_NOISE) * SCALE / SIGNAL_RANGE) - (AMP_NOISE * SCALE / SIGNAL_RANGE / 2);
+	  	adc_buffer[get_work() * ADC_BUFFER_LENGTH_HALF + i] = a;
+	  }
+
+
+#endif
 	  while (NONE == get_work()){};
 	  cur_buffer_i = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
+#ifdef _SIMULATION_
+	  if (FIRSTHALF == get_work())
+	  {
+		  assign_work(SECONDHALF);
+	  }
+	  else
+	  {
+		  assign_work(FIRSTHALF);
+	  }
+#else
 	  assign_work(NONE);
+#endif
 
 	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
-	  cur_buffer_f = apply_window(cur_buffer_i, ADC_MEASURE_COUNT);
-	  apply_fft(cur_buffer_f, FFT_buffer, ADC_MEASURE_COUNT);
+	  cur_buffer_q15 = apply_window(cur_buffer_i, ADC_MEASURE_COUNT);
+	  apply_fft(cur_buffer_q15, mag_buffer, ADC_MEASURE_COUNT);
   }
   /* USER CODE END 5 */ 
 }

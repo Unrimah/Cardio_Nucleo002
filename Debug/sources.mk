@@ -35,6 +35,7 @@ src/CommonTables \
 src/ComplexMathFunctions \
 src \
 src/FastMathFunctions \
+src/StatisticsFunctions \
 src/TransformFunctions \
 system/src/cmsis \
 system/src/cortexm \
