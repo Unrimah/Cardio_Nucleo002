@@ -59,8 +59,8 @@ DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim2;
 
-osThreadId ADCTaskHandle;
-osThreadId indicatorTaskHandle;
+static osThreadId ADCTaskHandle;
+static osThreadId indicatorTaskHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -72,6 +72,8 @@ q15_t        *cur_buffer_q15;
 int32_t       average = 0;
 uint32_t      maxAmp = 0;
 TAssignedWork work_with = NONE;
+//static TaskHandle_t xTaskADC = NULL;
+
 
 /* USER CODE END PV */
 
@@ -406,6 +408,9 @@ void StartADCTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
+	uint32_t ulNotificationValue;
+	const TickType_t xMaxBlockTime = pdMS_TO_TICKS(1000); // Something goes wrong if we wait more 1 sec
+
 #ifndef _SIMULATION_
 	HAL_TIM_Base_Start_IT(&htim2);
 #else
@@ -434,8 +439,21 @@ void StartADCTask(void const * argument)
 
 
 #endif
-	  while (NONE == get_work()){};
+	  ulNotificationValue = ulTaskNotifyTake( pdFALSE, xMaxBlockTime );
+	  if( ulNotificationValue != 1 )
+	  {
+		    _Error_Handler(__FILE__, __LINE__);
+	  }
+//	  while (NONE == get_work()){};
 	  cur_buffer_i = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
+	  if (get_work() == FIRSTHALF) // LED test
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+	  }
+	  else
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+	  }
 #ifdef _SIMULATION_
 	  if (FIRSTHALF == get_work())
 	  {
@@ -446,15 +464,6 @@ void StartADCTask(void const * argument)
 		  assign_work(FIRSTHALF);
 	  }
 #else
-	  if (get_work() == FIRSTHALF)
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-	  }
-	  else
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
-	  }
-
 	  assign_work(NONE);
 #endif
 	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
@@ -501,10 +510,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
 	if (hadc->Instance != ADC1)
 	{
 		return;
 	}
+
 	if (adc_counter < ADC_BUFFER_LENGTH-1)
 	{
 		++adc_counter;
@@ -517,10 +529,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	if (ADC_BUFFER_LENGTH_HALF == adc_counter)
 	{
 		assign_work(FIRSTHALF);
+		vTaskNotifyGiveFromISR( ADCTaskHandle, &xHigherPriorityTaskWoken );
+		portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+//		ADCTaskHandle
 	}
 	if (0 == adc_counter)
 	{
 		assign_work(SECONDHALF);
+		vTaskNotifyGiveFromISR( ADCTaskHandle, &xHigherPriorityTaskWoken );
+		portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 	}
 }
 

@@ -3,6 +3,7 @@
 
 //#define _SIMULATION_
 
+#define ALARM_FREQ (1500)
 #define MAX_FREQ (2000)
 #define ADC_FREQ (8400) // sampling freq
 #define ADC_MEASURE_COUNT (4096)
