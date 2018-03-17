@@ -70,6 +70,7 @@ uint32_t      adc_counter = 0;
 int32_t      *cur_buffer_i;
 q15_t        *cur_buffer_q15;
 int32_t       average = 0;
+uint32_t      maxAmp = 0;
 TAssignedWork work_with = NONE;
 
 /* USER CODE END PV */
@@ -401,6 +402,7 @@ void StartADCTask(void const * argument)
 #else
 	assign_work(FIRSTHALF);
 	srand((unsigned int)time(NULL));
+	float cur_freq = FREQ_T;
 #endif
   for(;;)
   {
@@ -412,11 +414,12 @@ void StartADCTask(void const * argument)
 	  {
 	  	a = 0;
 	  	a += CONST_LEVEL * SCALE / SIGNAL_RANGE;
-//	  	a += (AMP1 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ1 / ADC_FREQ );
-//	  	a += (AMP2 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ2 / ADC_FREQ );
-//	  	a += (AMP3 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ3 / ADC_FREQ );
-	  	a += (AMP_T * SCALE / SIGNAL_RANGE) * sin( 2 * PI * i * (FREQ_T + (VFREQ_T / ADC_FREQ)) / ADC_FREQ );
-//	  	a += ((rand() % AMP_NOISE) * SCALE / SIGNAL_RANGE) - (AMP_NOISE * SCALE / SIGNAL_RANGE / 2);
+	  	a += (AMP1 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ1 / ADC_FREQ );
+	  	a += (AMP2 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ2 / ADC_FREQ );
+	  	a += (AMP3 * SCALE / SIGNAL_RANGE)  * sin( 2 * PI * i * FREQ3 / ADC_FREQ );
+	  	cur_freq += (float) VFREQ_T / (float) ADC_FREQ;
+	  	a += (AMP_T * SCALE / SIGNAL_RANGE) * sin( 2 * PI * i * cur_freq / ADC_FREQ ); // implicit conversion
+	  	a += ((rand() % AMP_NOISE) * SCALE / SIGNAL_RANGE) - ((AMP_NOISE / 2) * SCALE / SIGNAL_RANGE);
 	  	adc_buffer[get_work() * ADC_BUFFER_LENGTH_HALF + i] = a;
 	  }
 
@@ -439,8 +442,8 @@ void StartADCTask(void const * argument)
 
 	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
-	  apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
-	  cur_buffer_q15 = apply_window(cur_buffer_i, ADC_MEASURE_COUNT);
+	  maxAmp = apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
+	  cur_buffer_q15 = apply_window(cur_buffer_i, ADC_MEASURE_COUNT, maxAmp);
 	  apply_fft(cur_buffer_q15, mag_buffer, ADC_MEASURE_COUNT);
   }
   /* USER CODE END 5 */ 
