@@ -343,6 +343,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
   /*Configure GPIO pins : PC13 PC14 PC15 PC0 
                            PC1 PC2 PC3 PC4 
                            PC5 PC6 PC7 PC8 
@@ -356,15 +359,21 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA1 PA2 PA3 PA4 
-                           PA5 PA6 PA7 PA8 
+                           PA6 PA7 PA8
                            PA9 PA10 PA11 PA12 
                            PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4 
-                          |GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8 
+                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8             // excluded GPIO_PIN_5
                           |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12 
                           |GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB0 PB1 PB2 PB10 
@@ -437,9 +446,17 @@ void StartADCTask(void const * argument)
 		  assign_work(FIRSTHALF);
 	  }
 #else
+	  if (get_work() == FIRSTHALF)
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+	  }
+	  else
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+	  }
+
 	  assign_work(NONE);
 #endif
-
 	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  maxAmp = apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
@@ -484,6 +501,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+	if (hadc->Instance != ADC1)
+	{
+		return;
+	}
 	if (adc_counter < ADC_BUFFER_LENGTH-1)
 	{
 		++adc_counter;

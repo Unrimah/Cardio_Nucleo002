@@ -22,8 +22,11 @@ fixed point precision: 16 bits
 
 */
 #include "stdint.h"
+#include "parameters.h"
 
-#define FIRFILTER_TAP_NUM 10
+#ifndef FIRFILTER_TAP_NUM
+#define FIRFILTER_TAP_NUM (10)
+#endif
 
 typedef struct {
   int32_t history[FIRFILTER_TAP_NUM];

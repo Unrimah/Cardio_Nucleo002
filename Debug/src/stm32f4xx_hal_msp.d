@@ -1,8 +1,8 @@
 src/stm32f4xx_hal_msp.d: ../src/stm32f4xx_hal_msp.c \
  ../system/include/stm32f4-hal/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h ../include/main.h ../include/dsp_func.h \
- ../include/FIRFilter.h ../system/include/cmsis/arm_math.h \
- ../system/include/cmsis/core_cm4.h \
+ ../include/parameters.h ../include/FIRFilter.h \
+ ../system/include/cmsis/arm_math.h ../system/include/cmsis/core_cm4.h \
  ../system/include/cmsis/core_cmInstr.h \
  ../system/include/cmsis/cmsis_gcc.h \
  ../system/include/cmsis/core_cmFunc.h \
@@ -40,6 +40,8 @@ src/stm32f4xx_hal_msp.d: ../src/stm32f4xx_hal_msp.c \
 ../include/main.h:
 
 ../include/dsp_func.h:
+
+../include/parameters.h:
 
 ../include/FIRFilter.h:
 

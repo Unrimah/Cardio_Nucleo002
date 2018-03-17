@@ -12,8 +12,8 @@ system/src/cortexm/exception_handlers.o: \
  ../system/include/cmsis/device/system_stm32f4xx.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h ../include/main.h ../include/dsp_func.h \
- ../include/FIRFilter.h ../system/include/cmsis/arm_math.h \
- ../system/include/cmsis/core_cm4.h \
+ ../include/parameters.h ../include/FIRFilter.h \
+ ../system/include/cmsis/arm_math.h ../system/include/cmsis/core_cm4.h \
  ../system/include/cmsis/arm_const_structs.h \
  ../system/include/cmsis/arm_math.h \
  ../system/include/cmsis/arm_common_tables.h \
@@ -64,6 +64,8 @@ system/src/cortexm/exception_handlers.o: \
 ../include/main.h:
 
 ../include/dsp_func.h:
+
+../include/parameters.h:
 
 ../include/FIRFilter.h:
 

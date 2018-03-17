@@ -126,7 +126,7 @@ uint32_t apply_fft(q15_t *buffer_src, q15_t *buffer_dst, const uint32_t fftSize)
 	  arm_cmplx_mag_q15(buffer_src, buffer_dst, fftSize);
 
 	  /* Calculates maxValue and returns corresponding BIN value */
-	  arm_max_q15(buffer_dst, fftSize, &maxValue, &maxIndex);
+	  arm_max_q15(buffer_dst, MAX_FREQ * ADC_MEASURE_COUNT / ADC_FREQ, &maxValue, &maxIndex); // 975
 
 	  return maxIndex;
 
