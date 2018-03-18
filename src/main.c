@@ -58,6 +58,7 @@ ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 static osThreadId ADCTaskHandle;
 static osThreadId indicatorTaskHandle;
@@ -71,6 +72,7 @@ int32_t      *cur_buffer_i;
 q15_t        *cur_buffer_q15;
 int32_t       average = 0;
 uint32_t      maxAmp = 0;
+uint32_t      maxIndex = 0;
 TAssignedWork work_with = NONE;
 //static TaskHandle_t xTaskADC = NULL;
 
@@ -83,6 +85,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM3_Init(void);
 void StartADCTask(void const * argument);
 void StartIndicatorTask(void const * argument);
 
@@ -129,6 +132,7 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   MX_TIM2_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -146,13 +150,13 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the thread(s) */
-  /* definition and creation of ADCTask */
-  osThreadDef(ADCTask, StartADCTask, osPriorityNormal, 0, 128);
-  ADCTaskHandle = osThreadCreate(osThread(ADCTask), NULL);
-
   /* definition and creation of indicatorTask */
   osThreadDef(indicatorTask, StartIndicatorTask, osPriorityNormal, 0, 128);
   indicatorTaskHandle = osThreadCreate(osThread(indicatorTask), NULL);
+
+  /* definition and creation of ADCTask */
+  osThreadDef(ADCTask, StartADCTask, osPriorityNormal, 0, 128);
+  ADCTaskHandle = osThreadCreate(osThread(ADCTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -309,6 +313,38 @@ static void MX_TIM2_Init(void)
 
 }
 
+/* TIM3 init function */
+static void MX_TIM3_Init(void)
+{
+
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 10000;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 2100; // 1/4 sec
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
+
 /** 
   * Enable DMA controller clock
   */
@@ -416,7 +452,7 @@ void StartADCTask(void const * argument)
 #else
 	assign_work(FIRSTHALF);
 	srand((unsigned int)time(NULL));
-	float cur_freq = FREQ_T;
+	static float cur_freq = FREQ_T;
 #endif
   for(;;)
   {
@@ -437,23 +473,22 @@ void StartADCTask(void const * argument)
 	  	adc_buffer[get_work() * ADC_BUFFER_LENGTH_HALF + i] = a;
 	  }
 
-
-#endif
+	  if (MAX_FREQ < cur_freq)
+	  {
+		  HAL_TIM_Base_Stop_IT(&htim3);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+		  while (1) {};
+	  }
+#else
 	  ulNotificationValue = ulTaskNotifyTake( pdFALSE, xMaxBlockTime );
 	  if( ulNotificationValue != 1 )
 	  {
 		    _Error_Handler(__FILE__, __LINE__);
 	  }
-//	  while (NONE == get_work()){};
+#endif
+
 	  cur_buffer_i = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
-	  if (get_work() == FIRSTHALF) // LED test
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-	  }
-	  else
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
-	  }
+
 #ifdef _SIMULATION_
 	  if (FIRSTHALF == get_work())
 	  {
@@ -470,7 +505,7 @@ void StartADCTask(void const * argument)
 	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  maxAmp = apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
 	  cur_buffer_q15 = apply_window(cur_buffer_i, ADC_MEASURE_COUNT, maxAmp);
-	  apply_fft(cur_buffer_q15, mag_buffer, ADC_MEASURE_COUNT);
+	  maxIndex = apply_fft(cur_buffer_q15, mag_buffer, ADC_MEASURE_COUNT);
   }
   /* USER CODE END 5 */ 
 }
@@ -479,10 +514,34 @@ void StartADCTask(void const * argument)
 void StartIndicatorTask(void const * argument)
 {
   /* USER CODE BEGIN StartIndicatorTask */
-  /* Infinite loop */
+	const TickType_t xMaxBlockTime = pdMS_TO_TICKS(1000); // Something goes wrong if we wait more 1 sec
+	static int state = 0;
+
+	HAL_TIM_Base_Start_IT(&htim3);
+
+/* Infinite loop */
   for(;;)
   {
-    osDelay(3000);
+	  if (1 != ulTaskNotifyTake( pdTRUE, xMaxBlockTime ))
+	  {
+		    _Error_Handler(__FILE__, __LINE__);
+	  }
+	  else
+	  {
+		  state = state ? 0 : 1;
+		  if (state)
+		  {
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+		  }
+		  else
+		  {
+			  if ((maxIndex * ADC_FREQ / ADC_MEASURE_COUNT) > ALARM_FREQ)
+			  {
+				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+			  }
+
+		  }
+	  }
   }
   /* USER CODE END StartIndicatorTask */
 }
@@ -498,12 +557,18 @@ void StartIndicatorTask(void const * argument)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
+	BaseType_t xHigherPriorityTaskWoken;
 
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM1) {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
+  if (htim->Instance == TIM3) {
+	  xHigherPriorityTaskWoken = pdFALSE;
+	  vTaskNotifyGiveFromISR( indicatorTaskHandle, &xHigherPriorityTaskWoken );
+	  portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+  }
 
   /* USER CODE END Callback 1 */
 }

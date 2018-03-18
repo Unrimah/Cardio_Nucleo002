@@ -1,11 +1,13 @@
 #ifndef _PARAMETERS_CARDIO_
 #define _PARAMETERS_CARDIO_
 
-//#define _SIMULATION_
+#define _SIMULATION_
 
-#define ALARM_FREQ (1500)
+//#define ALARM_FREQ (1500)
+#define ALARM_FREQ (500)
 #define MAX_FREQ (2000)
 #define ADC_FREQ (8400) // sampling freq
+#define SIGNAL_RANGE (3300) // mV
 #define ADC_MEASURE_COUNT (4096)
 #define FIRFILTER_TAP_NUM (10)
 #define ADC_BUFFER_LENGTH_HALF (ADC_MEASURE_COUNT + FIRFILTER_TAP_NUM)
@@ -13,7 +15,6 @@
 
 #ifdef _SIMULATION_
 
-#define SIGNAL_RANGE (3300) // mV
 #define SCALE        (4096) // 12 bit sampling
 #define CONST_LEVEL  (1650) // mV
 #define AMP1         (20)   // mV
