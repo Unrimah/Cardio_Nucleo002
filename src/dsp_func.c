@@ -2,7 +2,7 @@
  * dsp_func.c
  *
  *  Created on: 12 мар. 2018 г.
- *      Author: NIOKR
+ *      Author: Vladimir Bogdanov
  */
 #include "dsp_func.h"
 #include "stdlib.h"
@@ -58,18 +58,14 @@ q15_t *apply_window(int32_t *buffer_i, const uint32_t length, const uint32_t max
 	int32_t a = (length - 1) / 2;
 	int32_t w;
 	uint32_t n;
-//	float32_t *buffer_f = (float32_t*) buffer_i;
 	q15_t *buffer_q15 = (q15_t*) buffer_i;
 	q15_t k = SHRT_MAX / maxAmp; // normalization coefficient
 
 
 	for (n = 0; n < length; ++n)
 	{
-//		w = 65536 - abs((65536 * n) / a - 65536);
 		w = SHRT_MAX - abs((SHRT_MAX * n) / a - SHRT_MAX);
-//		buffer_f[n] = (float) (buffer_i[n] * w) / 65536;
 		buffer_q15[2 * n] = k * (buffer_i[n] * w) / SHRT_MAX;
-//		buffer_q15[2 * n] = k * buffer_i[n];
 		buffer_q15[2 * n + 1] = 0;
 	}
 	return buffer_q15;
@@ -79,7 +75,6 @@ uint32_t apply_fft(q15_t *buffer_src, q15_t *buffer_dst, const uint32_t fftSize)
 {
 	uint32_t maxIndex = 0;
 	q15_t maxValue;
-//	uint32_t fftSize = ADC_MEASURE_COUNT; //4096
 	uint32_t ifftFlag = 0;
 	uint32_t doBitReverse = 1;
 	arm_cfft_instance_q15 const *S;

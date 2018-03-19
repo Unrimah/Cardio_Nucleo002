@@ -3,10 +3,9 @@
 
 #define _SIMULATION_
 
-//#define ALARM_FREQ (1500)
 #define ALARM_FREQ (500)
 #define MAX_FREQ (2000)
-#define ADC_FREQ (8400) // sampling freq
+#define ADC_FREQ (10671) // sampling freq
 #define SIGNAL_RANGE (3300) // mV
 #define ADC_MEASURE_COUNT (4096)
 #define FIRFILTER_TAP_NUM (10)
@@ -29,7 +28,5 @@
 #define VFREQ_T (50)  // Hz/sec - increasing speed for TARGET freq
 
 #endif // _SIMULATION_
-
-
 
 #endif //_PARAMETERS_CARDIO_

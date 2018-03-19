@@ -57,7 +57,6 @@
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
-TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 static osThreadId ADCTaskHandle;
@@ -74,7 +73,8 @@ int32_t       average = 0;
 uint32_t      maxAmp = 0;
 uint32_t      maxIndex = 0;
 TAssignedWork work_with = NONE;
-//static TaskHandle_t xTaskADC = NULL;
+
+volatile uint32_t ticks1, ticks2, ticks3;
 
 
 /* USER CODE END PV */
@@ -84,7 +84,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
-static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 void StartADCTask(void const * argument);
 void StartIndicatorTask(void const * argument);
@@ -131,7 +130,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
-  MX_TIM2_Init();
+//  MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
@@ -225,7 +224,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
@@ -256,7 +255,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START; //ADC_EXTERNALTRIGCONV_T2_TRGO;
@@ -281,38 +280,6 @@ static void MX_ADC1_Init(void)
 
 }
 
-/* TIM2 init function */
-static void MX_TIM2_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 10000;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-}
-
 /* TIM3 init function */
 static void MX_TIM3_Init(void)
 {
@@ -321,7 +288,7 @@ static void MX_TIM3_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 10000;
+  htim3.Init.Prescaler = 9999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 2100; // 1/4 sec
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -444,11 +411,14 @@ void StartADCTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
+#ifndef _SIMULATION_
 	uint32_t ulNotificationValue;
 	const TickType_t xMaxBlockTime = pdMS_TO_TICKS(1000); // Something goes wrong if we wait more 1 sec
 
-#ifndef _SIMULATION_
-	HAL_TIM_Base_Start_IT(&htim2);
+	assign_work(SECONDHALF);
+	ticks1 = HAL_GetTick();
+	HAL_ADC_Start_DMA(&hadc1, adc_buffer + (ADC_BUFFER_LENGTH_HALF * (1 - get_work())), ADC_BUFFER_LENGTH_HALF);
+
 #else
 	assign_work(FIRSTHALF);
 	srand((unsigned int)time(NULL));
@@ -456,7 +426,6 @@ void StartADCTask(void const * argument)
 #endif
   for(;;)
   {
-//    osDelay(2000);
 #ifdef _SIMULATION_
 	  int i;
 	  int a;
@@ -480,12 +449,15 @@ void StartADCTask(void const * argument)
 		  while (1) {};
 	  }
 #else
-	  ulNotificationValue = ulTaskNotifyTake( pdFALSE, xMaxBlockTime );
+	  ulNotificationValue = ulTaskNotifyTake( pdTRUE, xMaxBlockTime );
 	  if( ulNotificationValue != 1 )
 	  {
 		    _Error_Handler(__FILE__, __LINE__);
 	  }
+	  ticks1 = HAL_GetTick();
+	  HAL_ADC_Start_DMA(&hadc1, adc_buffer + (ADC_BUFFER_LENGTH_HALF * (1 - get_work())), ADC_BUFFER_LENGTH_HALF);
 #endif
+
 
 	  cur_buffer_i = (int32_t*) &adc_buffer[ADC_BUFFER_LENGTH_HALF * get_work()];
 
@@ -499,13 +471,14 @@ void StartADCTask(void const * argument)
 		  assign_work(FIRSTHALF);
 	  }
 #else
-	  assign_work(NONE);
+//	  assign_work(NONE);
 #endif
 	  average = get_average(cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  sub_average(average, cur_buffer_i, ADC_BUFFER_LENGTH_HALF);
 	  maxAmp = apply_filter(cur_buffer_i, ADC_BUFFER_LENGTH_HALF, FIRFILTER_TAP_NUM);
 	  cur_buffer_q15 = apply_window(cur_buffer_i, ADC_MEASURE_COUNT, maxAmp);
 	  maxIndex = apply_fft(cur_buffer_q15, mag_buffer, ADC_MEASURE_COUNT);
+	  ticks3 = HAL_GetTick();
   }
   /* USER CODE END 5 */ 
 }
@@ -577,28 +550,19 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
+	ticks2 = HAL_GetTick();
 	if (hadc->Instance != ADC1)
 	{
 		return;
 	}
 
-	if (adc_counter < ADC_BUFFER_LENGTH-1)
-	{
-		++adc_counter;
-	}
-	else
-	{
-		adc_counter = 0;
-	}
-
-	if (ADC_BUFFER_LENGTH_HALF == adc_counter)
+	if (SECONDHALF == get_work())
 	{
 		assign_work(FIRSTHALF);
 		vTaskNotifyGiveFromISR( ADCTaskHandle, &xHigherPriorityTaskWoken );
 		portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
-//		ADCTaskHandle
 	}
-	if (0 == adc_counter)
+	else
 	{
 		assign_work(SECONDHALF);
 		vTaskNotifyGiveFromISR( ADCTaskHandle, &xHigherPriorityTaskWoken );

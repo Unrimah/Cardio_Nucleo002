@@ -93,7 +93,9 @@ Allocating common symbols
 Common symbol       size              file
 
 cur_buffer_i        0x4               ./src/main.o
+ticks3              0x4               ./src/main.o
 errno               0x4               ./system/src/newlib/_syscalls.o
+ticks1              0x4               ./src/main.o
 uwTick              0x4               ./system/src/stm32f4-hal/stm32f4xx_hal.o
 xQueueRegistry      0x40              ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
 pFlash              0x20              ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
@@ -102,7 +104,7 @@ hadc1               0x48              ./src/main.o
 hdma_adc1           0x60              ./src/main.o
 adc_buffer          0x8050            ./src/main.o
 htim1               0x3c              ./src/stm32f4xx_hal_timebase_TIM.o
-htim2               0x3c              ./src/main.o
+ticks2              0x4               ./src/main.o
 cur_buffer_q15      0x4               ./src/main.o
 mag_buffer          0x2000            ./src/main.o
 
@@ -950,7 +952,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
  .debug_macro   0x00000000      0x128 ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
  .debug_line    0x00000000      0x743 ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
- .debug_str     0x00000000    0x88662 ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
+ .debug_str     0x00000000    0x88663 ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
  .comment       0x00000000       0x7f ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
  .ARM.attributes
                 0x00000000       0x39 ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o
@@ -1308,7 +1310,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
  .debug_macro   0x00000000      0x128 ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
  .debug_line    0x00000000      0xdf2 ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
- .debug_str     0x00000000    0x889f3 ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
+ .debug_str     0x00000000    0x889f4 ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
  .comment       0x00000000       0x7f ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
  .debug_frame   0x00000000       0x7c ./system/src/stm32f4-hal/stm32f4xx_hal_dma_ex.o
  .ARM.attributes
@@ -1514,7 +1516,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
  .debug_macro   0x00000000      0x128 ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
  .debug_line    0x00000000      0x957 ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
- .debug_str     0x00000000    0x889e4 ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
+ .debug_str     0x00000000    0x889e5 ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
  .comment       0x00000000       0x7f ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
  .debug_frame   0x00000000      0x18c ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o
  .ARM.attributes
@@ -1852,7 +1854,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
  .debug_macro   0x00000000      0x128 ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
  .debug_line    0x00000000      0x742 ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
- .debug_str     0x00000000    0x88661 ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
+ .debug_str     0x00000000    0x88662 ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
  .comment       0x00000000       0x7f ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
  .ARM.attributes
                 0x00000000       0x39 ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o
@@ -2057,7 +2059,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
  .debug_macro   0x00000000      0x128 ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
  .debug_line    0x00000000      0x953 ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
- .debug_str     0x00000000    0x88aa1 ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
+ .debug_str     0x00000000    0x88aa2 ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
  .comment       0x00000000       0x7f ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
  .debug_frame   0x00000000      0x154 ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o
  .ARM.attributes
@@ -3816,7 +3818,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14d ./system/src/cortexm/_reset_hardware.o
  .debug_macro   0x00000000      0x128 ./system/src/cortexm/_reset_hardware.o
  .debug_line    0x00000000      0x772 ./system/src/cortexm/_reset_hardware.o
- .debug_str     0x00000000    0x886ff ./system/src/cortexm/_reset_hardware.o
+ .debug_str     0x00000000    0x88700 ./system/src/cortexm/_reset_hardware.o
  .comment       0x00000000       0x7f ./system/src/cortexm/_reset_hardware.o
  .debug_frame   0x00000000       0x20 ./system/src/cortexm/_reset_hardware.o
  .ARM.attributes
@@ -9953,7 +9955,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xc0 ./src/freertos.o
  .debug_macro   0x00000000       0x8c ./src/freertos.o
  .debug_line    0x00000000      0x57e ./src/freertos.o
- .debug_str     0x00000000     0xd197 ./src/freertos.o
+ .debug_str     0x00000000     0xd198 ./src/freertos.o
  .comment       0x00000000       0x7f ./src/freertos.o
  .ARM.attributes
                 0x00000000       0x39 ./src/freertos.o
@@ -10050,6 +10052,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/main.o
  .data          0x00000000        0x0 ./src/main.o
  .bss           0x00000000        0x0 ./src/main.o
+ .bss.adc_counter
+                0x00000000        0x4 ./src/main.o
  .debug_macro   0x00000000      0xa6c ./src/main.o
  .debug_macro   0x00000000       0x88 ./src/main.o
  .debug_macro   0x00000000      0x34e ./src/main.o
@@ -10217,7 +10221,7 @@ Discarded input sections
  .text.HAL_ADC_MspDeInit
                 0x00000000       0x3c ./src/stm32f4xx_hal_msp.o
  .text.HAL_TIM_Base_MspDeInit
-                0x00000000       0x44 ./src/stm32f4xx_hal_msp.o
+                0x00000000       0x28 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000      0xa6c ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x88 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000      0x34e ./src/stm32f4xx_hal_msp.o
@@ -11192,7 +11196,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .debug_macro   0x00000000       0x43 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .debug_line    0x00000000      0x5b0 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
- .debug_str     0x00000000     0xd7a0 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
+ .debug_str     0x00000000     0xd7a1 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .comment       0x00000000       0x7f ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .ARM.attributes
                 0x00000000       0x39 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
@@ -11335,7 +11339,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x91 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_macro   0x00000000       0x19 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_line    0x00000000      0x7ad ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
- .debug_str     0x00000000     0xe0ce ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
+ .debug_str     0x00000000     0xe0cf ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .comment       0x00000000       0x7f ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_frame   0x00000000      0x110 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .ARM.attributes
@@ -11612,7 +11616,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .debug_macro   0x00000000       0x94 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .debug_line    0x00000000      0xaeb ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
- .debug_str     0x00000000     0xe355 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
+ .debug_str     0x00000000     0xe356 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .comment       0x00000000       0x7f ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .debug_frame   0x00000000      0x2b4 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
  .ARM.attributes
@@ -11905,7 +11909,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x94 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .debug_macro   0x00000000       0x91 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .debug_line    0x00000000      0x5b7 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
- .debug_str     0x00000000     0xe1b4 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
+ .debug_str     0x00000000     0xe1b5 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .comment       0x00000000       0x7f ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .ARM.attributes
                 0x00000000       0x39 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
@@ -12252,7 +12256,7 @@ END GROUP
                 0x2000fc00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x2000e040                PROVIDE (_Heap_Begin, _end_noinit)
+                0x2000e00c                PROVIDE (_Heap_Begin, _end_noinit)
                 0x2000fc00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x3f0
@@ -12276,16 +12280,16 @@ END GROUP
 
 .inits          0x080003f0       0x28
                 0x080003f0                __data_regions_array_start = .
-                0x080003f0        0x4 LONG 0x8011ccc LOADADDR (.data)
+                0x080003f0        0x4 LONG 0x8011c0c LOADADDR (.data)
                 0x080003f4        0x4 LONG 0x20000000 ADDR (.data)
                 0x080003f8        0x4 LONG 0x20000084 (ADDR (.data) + SIZEOF (.data))
-                0x080003fc        0x4 LONG 0x8011ccc LOADADDR (.data_CCMRAM)
+                0x080003fc        0x4 LONG 0x8011c0c LOADADDR (.data_CCMRAM)
                 0x08000400        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x08000404        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x08000408                __data_regions_array_end = .
                 0x08000408                __bss_regions_array_start = .
                 0x08000408        0x4 LONG 0x20000084 ADDR (.bss)
-                0x0800040c        0x4 LONG 0x2000e040 (ADDR (.bss) + SIZEOF (.bss))
+                0x0800040c        0x4 LONG 0x2000e00c (ADDR (.bss) + SIZEOF (.bss))
                 0x08000410        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x08000414        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x08000418                __bss_regions_array_end = .
@@ -12311,7 +12315,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x08000420    0x118ab
+.text           0x08000420    0x117eb
  *(.text .text.*)
  .text.HAL_Init
                 0x08000420       0x34 ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -12509,6 +12513,7 @@ END GROUP
                 0x08002860                DMA1_Stream0_IRQHandler
                 0x08002860                EXTI4_IRQHandler
                 0x08002860                WWDG_IRQHandler
+                0x08002860                TIM2_IRQHandler
                 0x08002860                OTG_FS_WKUP_IRQHandler
                 0x08002860                TIM1_TRG_COM_TIM11_IRQHandler
                 0x08002860                EXTI1_IRQHandler
@@ -12594,516 +12599,512 @@ END GROUP
  .text.assign_work
                 0x08003ba8        0xc ./src/main.o
                 0x08003ba8                assign_work
- .text.HAL_ADC_ConvCpltCallback
-                0x08003bb4       0xa8 ./src/main.o
-                0x08003bb4                HAL_ADC_ConvCpltCallback
  .text.get_work
-                0x08003c5c        0xc ./src/main.o
-                0x08003c5c                get_work
+                0x08003bb4        0xc ./src/main.o
+                0x08003bb4                get_work
  .text.StartADCTask
-                0x08003c68      0x26c ./src/main.o
-                0x08003c68                StartADCTask
+                0x08003bc0      0x278 ./src/main.o
+                0x08003bc0                StartADCTask
+ .text.HAL_ADC_ConvCpltCallback
+                0x08003e38       0x88 ./src/main.o
+                0x08003e38                HAL_ADC_ConvCpltCallback
  .text._Error_Handler
-                0x08003ed4        0x2 ./src/main.o
-                0x08003ed4                _Error_Handler
- *fill*         0x08003ed6        0x2 
+                0x08003ec0        0x2 ./src/main.o
+                0x08003ec0                _Error_Handler
+ *fill*         0x08003ec2        0x2 
  .text.MX_ADC1_Init
-                0x08003ed8       0x70 ./src/main.o
- .text.MX_TIM2_Init
-                0x08003f48       0x70 ./src/main.o
+                0x08003ec4       0x70 ./src/main.o
  .text.MX_TIM3_Init
-                0x08003fb8       0x74 ./src/main.o
+                0x08003f34       0x74 ./src/main.o
  .text.SystemClock_Config
-                0x0800402c       0xc0 ./src/main.o
-                0x0800402c                SystemClock_Config
- .text.main     0x080040ec       0x64 ./src/main.o
-                0x080040ec                main
+                0x08003fa8       0xc0 ./src/main.o
+                0x08003fa8                SystemClock_Config
+ .text.main     0x08004068       0x60 ./src/main.o
+                0x08004068                main
  .text.StartIndicatorTask
-                0x08004150       0x74 ./src/main.o
-                0x08004150                StartIndicatorTask
+                0x080040c8       0x74 ./src/main.o
+                0x080040c8                StartIndicatorTask
  .text.assert_failed
-                0x080041c4        0x2 ./src/main.o
-                0x080041c4                assert_failed
+                0x0800413c        0x2 ./src/main.o
+                0x0800413c                assert_failed
  .text.HAL_MspInit
-                0x080041c6       0x5e ./src/stm32f4xx_hal_msp.o
-                0x080041c6                HAL_MspInit
+                0x0800413e       0x5e ./src/stm32f4xx_hal_msp.o
+                0x0800413e                HAL_MspInit
  .text.HAL_ADC_MspInit
-                0x08004224       0xa4 ./src/stm32f4xx_hal_msp.o
-                0x08004224                HAL_ADC_MspInit
+                0x0800419c       0xa4 ./src/stm32f4xx_hal_msp.o
+                0x0800419c                HAL_ADC_MspInit
  .text.HAL_TIM_Base_MspInit
-                0x080042c8       0x74 ./src/stm32f4xx_hal_msp.o
-                0x080042c8                HAL_TIM_Base_MspInit
+                0x08004240       0x40 ./src/stm32f4xx_hal_msp.o
+                0x08004240                HAL_TIM_Base_MspInit
  .text.HAL_InitTick
-                0x0800433c       0x78 ./src/stm32f4xx_hal_timebase_TIM.o
-                0x0800433c                HAL_InitTick
+                0x08004280       0x78 ./src/stm32f4xx_hal_timebase_TIM.o
+                0x08004280                HAL_InitTick
  .text.NMI_Handler
-                0x080043b4        0x2 ./src/stm32f4xx_it.o
-                0x080043b4                NMI_Handler
+                0x080042f8        0x2 ./src/stm32f4xx_it.o
+                0x080042f8                NMI_Handler
  .text.HardFault_Handler
-                0x080043b6        0x2 ./src/stm32f4xx_it.o
-                0x080043b6                HardFault_Handler
+                0x080042fa        0x2 ./src/stm32f4xx_it.o
+                0x080042fa                HardFault_Handler
  .text.MemManage_Handler
-                0x080043b8        0x2 ./src/stm32f4xx_it.o
-                0x080043b8                MemManage_Handler
+                0x080042fc        0x2 ./src/stm32f4xx_it.o
+                0x080042fc                MemManage_Handler
  .text.BusFault_Handler
-                0x080043ba        0x2 ./src/stm32f4xx_it.o
-                0x080043ba                BusFault_Handler
+                0x080042fe        0x2 ./src/stm32f4xx_it.o
+                0x080042fe                BusFault_Handler
  .text.UsageFault_Handler
-                0x080043bc        0x2 ./src/stm32f4xx_it.o
-                0x080043bc                UsageFault_Handler
+                0x08004300        0x2 ./src/stm32f4xx_it.o
+                0x08004300                UsageFault_Handler
  .text.DebugMon_Handler
-                0x080043be        0x2 ./src/stm32f4xx_it.o
-                0x080043be                DebugMon_Handler
+                0x08004302        0x2 ./src/stm32f4xx_it.o
+                0x08004302                DebugMon_Handler
  .text.SysTick_Handler
-                0x080043c0        0x8 ./src/stm32f4xx_it.o
-                0x080043c0                SysTick_Handler
+                0x08004304        0x8 ./src/stm32f4xx_it.o
+                0x08004304                SysTick_Handler
  .text.ADC_IRQHandler
-                0x080043c8       0x10 ./src/stm32f4xx_it.o
-                0x080043c8                ADC_IRQHandler
+                0x0800430c       0x10 ./src/stm32f4xx_it.o
+                0x0800430c                ADC_IRQHandler
  .text.TIM1_UP_TIM10_IRQHandler
-                0x080043d8       0x10 ./src/stm32f4xx_it.o
-                0x080043d8                TIM1_UP_TIM10_IRQHandler
- .text.TIM2_IRQHandler
-                0x080043e8       0x10 ./src/stm32f4xx_it.o
-                0x080043e8                TIM2_IRQHandler
+                0x0800431c       0x10 ./src/stm32f4xx_it.o
+                0x0800431c                TIM1_UP_TIM10_IRQHandler
  .text.TIM3_IRQHandler
-                0x080043f8       0x10 ./src/stm32f4xx_it.o
-                0x080043f8                TIM3_IRQHandler
+                0x0800432c       0x10 ./src/stm32f4xx_it.o
+                0x0800432c                TIM3_IRQHandler
  .text.DMA2_Stream0_IRQHandler
-                0x08004408       0x10 ./src/stm32f4xx_it.o
-                0x08004408                DMA2_Stream0_IRQHandler
+                0x0800433c       0x10 ./src/stm32f4xx_it.o
+                0x0800433c                DMA2_Stream0_IRQHandler
  .text.prvHeapInit
-                0x08004418       0x64 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x0800434c       0x64 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .text.prvInsertBlockIntoFreeList
-                0x0800447c       0x58 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x080043b0       0x58 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .text.pvPortMalloc
-                0x080044d4      0x108 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
-                0x080044d4                pvPortMalloc
+                0x08004408      0x108 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08004408                pvPortMalloc
  .text.vPortFree
-                0x080045dc       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
-                0x080045dc                vPortFree
+                0x08004510       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x08004510                vPortFree
  .text.prvTaskExitError
-                0x0800464c       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004580       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.prvPortStartFirstTask
-                0x08004680       0x20 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080045b4       0x20 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.vPortEnableVFP
-                0x080046a0       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080045d4       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .text.pxPortInitialiseStack
-                0x080046b4       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080046b4                pxPortInitialiseStack
+                0x080045e8       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080045e8                pxPortInitialiseStack
+ *fill*         0x08004614        0xc 
  .text.SVC_Handler
-                0x080046e0       0x24 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080046e0                SVC_Handler
+                0x08004620       0x24 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004620                SVC_Handler
  .text.vPortEnterCritical
-                0x08004704       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08004704                vPortEnterCritical
+                0x08004644       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004644                vPortEnterCritical
  .text.vPortExitCritical
-                0x08004748       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08004748                vPortExitCritical
- *fill*         0x08004774        0xc 
+                0x08004688       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004688                vPortExitCritical
+ *fill*         0x080046b4        0xc 
  .text.PendSV_Handler
-                0x08004780       0x64 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08004780                PendSV_Handler
+                0x080046c0       0x64 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x080046c0                PendSV_Handler
  .text.xPortSysTickHandler
-                0x080047e4       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x080047e4                xPortSysTickHandler
+                0x08004724       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004724                xPortSysTickHandler
  .text.vPortSetupTimerInterrupt
-                0x08004810       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08004810                vPortSetupTimerInterrupt
+                0x08004750       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004750                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x0800483c       0xec ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x0800483c                xPortStartScheduler
+                0x0800477c       0xec ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x0800477c                xPortStartScheduler
  .text.vPortValidateInterruptPriority
-                0x08004928       0x5c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                0x08004928                vPortValidateInterruptPriority
+                0x08004868       0x5c ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x08004868                vPortValidateInterruptPriority
  .text.makeFreeRtosPriority
-                0x08004984        0xc ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                0x080048c4        0xc ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
  .text.osKernelStart
-                0x08004990        0xa ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
-                0x08004990                osKernelStart
+                0x080048d0        0xa ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                0x080048d0                osKernelStart
  .text.osThreadCreate
-                0x0800499a       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
-                0x0800499a                osThreadCreate
+                0x080048da       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                0x080048da                osThreadCreate
  .text.osSystickHandler
-                0x080049ce       0x10 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
-                0x080049ce                osSystickHandler
+                0x0800490e       0x10 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                0x0800490e                osSystickHandler
  .text.vListInitialise
-                0x080049de       0x16 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x080049de                vListInitialise
+                0x0800491e       0x16 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x0800491e                vListInitialise
  .text.vListInitialiseItem
-                0x080049f4        0x6 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x080049f4                vListInitialiseItem
+                0x08004934        0x6 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x08004934                vListInitialiseItem
  .text.vListInsertEnd
-                0x080049fa       0x18 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x080049fa                vListInsertEnd
+                0x0800493a       0x18 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x0800493a                vListInsertEnd
  .text.vListInsert
-                0x08004a12       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x08004a12                vListInsert
+                0x08004952       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x08004952                vListInsert
  .text.uxListRemove
-                0x08004a46       0x26 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                0x08004a46                uxListRemove
+                0x08004986       0x26 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x08004986                uxListRemove
  .text.prvResetNextTaskUnblockTime
-                0x08004a6c       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080049ac       0x2c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvDeleteTCB
-                0x08004a98       0x12 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080049d8       0x12 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvInitialiseNewTask
-                0x08004aaa       0x80 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
- *fill*         0x08004b2a        0x2 
+                0x080049ea       0x80 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ *fill*         0x08004a6a        0x2 
  .text.prvInitialiseTaskLists
-                0x08004b2c       0x68 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004a6c       0x68 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x08004b94       0xa8 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004ad4       0xa8 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x08004c3c       0x98 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004b7c       0x98 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.xTaskCreate
-                0x08004cd4       0x62 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004cd4                xTaskCreate
- *fill*         0x08004d36        0x2 
+                0x08004c14       0x62 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004c14                xTaskCreate
+ *fill*         0x08004c76        0x2 
  .text.vTaskStartScheduler
-                0x08004d38       0x7c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004d38                vTaskStartScheduler
+                0x08004c78       0x7c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004c78                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x08004db4       0x10 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004db4                vTaskSuspendAll
+                0x08004cf4       0x10 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004cf4                vTaskSuspendAll
  .text.xTaskIncrementTick
-                0x08004dc4      0x118 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004dc4                xTaskIncrementTick
+                0x08004d04      0x118 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004d04                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x08004edc       0xf4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08004edc                xTaskResumeAll
+                0x08004e1c       0xf4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004e1c                xTaskResumeAll
  .text.prvCheckTasksWaitingTermination
-                0x08004fd0       0x5c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004f10       0x5c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.prvIdleTask
-                0x0800502c       0x28 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004f6c       0x28 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .text.vTaskSwitchContext
-                0x08005054       0x98 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08005054                vTaskSwitchContext
+                0x08004f94       0x98 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x08004f94                vTaskSwitchContext
  .text.xTaskGetSchedulerState
-                0x080050ec       0x20 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x080050ec                xTaskGetSchedulerState
+                0x0800502c       0x20 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x0800502c                xTaskGetSchedulerState
  .text.ulTaskNotifyTake
-                0x0800510c       0x78 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x0800510c                ulTaskNotifyTake
+                0x0800504c       0x78 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x0800504c                ulTaskNotifyTake
  .text.vTaskNotifyGiveFromISR
-                0x08005184       0xd0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x08005184                vTaskNotifyGiveFromISR
- *fill*         0x08005254        0x4 
- .text.sin      0x08005258       0xc0 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_sin.o)
-                0x08005258                sin
+                0x080050c4       0xd0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080050c4                vTaskNotifyGiveFromISR
+ *fill*         0x08005194        0x4 
+ .text.sin      0x08005198       0xc0 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_sin.o)
+                0x08005198                sin
  .text.__ieee754_rem_pio2
-                0x08005318      0x454 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
-                0x08005318                __ieee754_rem_pio2
- *fill*         0x0800576c        0x4 
+                0x08005258      0x454 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
+                0x08005258                __ieee754_rem_pio2
+ *fill*         0x080056ac        0x4 
  .text.__kernel_cos
-                0x08005770      0x284 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_cos.o)
-                0x08005770                __kernel_cos
- *fill*         0x080059f4        0x4 
+                0x080056b0      0x284 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_cos.o)
+                0x080056b0                __kernel_cos
+ *fill*         0x08005934        0x4 
  .text.__kernel_rem_pio2
-                0x080059f8      0x818 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
-                0x080059f8                __kernel_rem_pio2
+                0x08005938      0x818 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
+                0x08005938                __kernel_rem_pio2
  .text.__kernel_sin
-                0x08006210      0x194 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_sin.o)
-                0x08006210                __kernel_sin
- .text.fabs     0x080063a4       0x14 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_fabs.o)
-                0x080063a4                fabs
- .text.floor    0x080063b8      0x110 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_floor.o)
-                0x080063b8                floor
- .text.scalbn   0x080064c8      0x114 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_scalbn.o)
-                0x080064c8                scalbn
+                0x08006150      0x194 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_sin.o)
+                0x08006150                __kernel_sin
+ .text.fabs     0x080062e4       0x14 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_fabs.o)
+                0x080062e4                fabs
+ .text.floor    0x080062f8      0x110 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_floor.o)
+                0x080062f8                floor
+ .text.scalbn   0x08006408      0x114 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_scalbn.o)
+                0x08006408                scalbn
  .text.copysign
-                0x080065dc       0x1c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_copysign.o)
-                0x080065dc                copysign
- .text          0x080065f8      0x378 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_addsubdf3.o)
-                0x080065f8                __aeabi_drsub
-                0x08006600                __aeabi_dsub
-                0x08006600                __subdf3
-                0x08006604                __aeabi_dadd
-                0x08006604                __adddf3
-                0x0800687c                __floatunsidf
-                0x0800687c                __aeabi_ui2d
-                0x0800689c                __floatsidf
-                0x0800689c                __aeabi_i2d
-                0x080068c0                __aeabi_f2d
-                0x080068c0                __extendsfdf2
-                0x08006904                __floatundidf
-                0x08006904                __aeabi_ul2d
-                0x08006914                __floatdidf
-                0x08006914                __aeabi_l2d
- .text          0x08006970      0x424 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_muldivdf3.o)
-                0x08006970                __aeabi_dmul
-                0x08006970                __muldf3
-                0x08006bc4                __divdf3
-                0x08006bc4                __aeabi_ddiv
- .text          0x08006d94      0x110 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_cmpdf2.o)
-                0x08006d94                __gtdf2
-                0x08006d94                __gedf2
-                0x08006d9c                __ltdf2
-                0x08006d9c                __ledf2
-                0x08006da4                __nedf2
-                0x08006da4                __eqdf2
-                0x08006da4                __cmpdf2
-                0x08006e20                __aeabi_cdrcmple
-                0x08006e30                __aeabi_cdcmpeq
-                0x08006e30                __aeabi_cdcmple
-                0x08006e40                __aeabi_dcmpeq
-                0x08006e54                __aeabi_dcmplt
-                0x08006e68                __aeabi_dcmple
-                0x08006e7c                __aeabi_dcmpge
-                0x08006e90                __aeabi_dcmpgt
- .text          0x08006ea4       0x50 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_fixdfsi.o)
-                0x08006ea4                __aeabi_d2iz
-                0x08006ea4                __fixdfsi
- .text.abs      0x08006ef4        0x8 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-abs.o)
-                0x08006ef4                abs
- .text.__errno  0x08006efc        0xc c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-errno.o)
-                0x08006efc                __errno
- .text.memcpy   0x08006f08       0x16 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memcpy-stub.o)
-                0x08006f08                memcpy
- *fill*         0x08006f1e        0x2 
- .text.srand    0x08006f20       0x48 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
-                0x08006f20                srand
- .text.rand     0x08006f68       0x68 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
-                0x08006f68                rand
- .text.time     0x08006fd0       0x34 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-time.o)
-                0x08006fd0                time
+                0x0800651c       0x1c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_copysign.o)
+                0x0800651c                copysign
+ .text          0x08006538      0x378 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x08006538                __aeabi_drsub
+                0x08006540                __aeabi_dsub
+                0x08006540                __subdf3
+                0x08006544                __aeabi_dadd
+                0x08006544                __adddf3
+                0x080067bc                __floatunsidf
+                0x080067bc                __aeabi_ui2d
+                0x080067dc                __floatsidf
+                0x080067dc                __aeabi_i2d
+                0x08006800                __aeabi_f2d
+                0x08006800                __extendsfdf2
+                0x08006844                __floatundidf
+                0x08006844                __aeabi_ul2d
+                0x08006854                __floatdidf
+                0x08006854                __aeabi_l2d
+ .text          0x080068b0      0x424 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x080068b0                __aeabi_dmul
+                0x080068b0                __muldf3
+                0x08006b04                __divdf3
+                0x08006b04                __aeabi_ddiv
+ .text          0x08006cd4      0x110 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x08006cd4                __gtdf2
+                0x08006cd4                __gedf2
+                0x08006cdc                __ltdf2
+                0x08006cdc                __ledf2
+                0x08006ce4                __nedf2
+                0x08006ce4                __eqdf2
+                0x08006ce4                __cmpdf2
+                0x08006d60                __aeabi_cdrcmple
+                0x08006d70                __aeabi_cdcmpeq
+                0x08006d70                __aeabi_cdcmple
+                0x08006d80                __aeabi_dcmpeq
+                0x08006d94                __aeabi_dcmplt
+                0x08006da8                __aeabi_dcmple
+                0x08006dbc                __aeabi_dcmpge
+                0x08006dd0                __aeabi_dcmpgt
+ .text          0x08006de4       0x50 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_fixdfsi.o)
+                0x08006de4                __aeabi_d2iz
+                0x08006de4                __fixdfsi
+ .text.abs      0x08006e34        0x8 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-abs.o)
+                0x08006e34                abs
+ .text.__errno  0x08006e3c        0xc c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-errno.o)
+                0x08006e3c                __errno
+ .text.memcpy   0x08006e48       0x16 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memcpy-stub.o)
+                0x08006e48                memcpy
+ *fill*         0x08006e5e        0x2 
+ .text.srand    0x08006e60       0x48 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
+                0x08006e60                srand
+ .text.rand     0x08006ea8       0x68 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
+                0x08006ea8                rand
+ .text.time     0x08006f10       0x34 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-time.o)
+                0x08006f10                time
  .text._vsnprintf_r
-                0x08007004       0x58 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
-                0x08007004                _vsniprintf_r
-                0x08007004                _vsnprintf_r
+                0x08006f44       0x58 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
+                0x08006f44                _vsniprintf_r
+                0x08006f44                _vsnprintf_r
  .text.vsnprintf
-                0x0800705c       0x1c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
-                0x0800705c                vsniprintf
-                0x0800705c                vsnprintf
+                0x08006f9c       0x1c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
+                0x08006f9c                vsniprintf
+                0x08006f9c                vsnprintf
  .text._gettimeofday_r
-                0x08007078       0x24 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
-                0x08007078                _gettimeofday_r
- .text.malloc   0x0800709c       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-malloc.o)
-                0x0800709c                malloc
- .text._free_r  0x080070ac       0x9c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-freer.o)
-                0x080070ac                _free_r
+                0x08006fb8       0x24 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
+                0x08006fb8                _gettimeofday_r
+ .text.malloc   0x08006fdc       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-malloc.o)
+                0x08006fdc                malloc
+ .text._free_r  0x08006fec       0x9c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-freer.o)
+                0x08006fec                _free_r
  .text._malloc_r
-                0x08007148       0xb4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
-                0x08007148                _malloc_r
+                0x08007088       0xb4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+                0x08007088                _malloc_r
  .text.__ssputs_r
-                0x080071fc       0xb4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x080071fc                __ssputs_r
+                0x0800713c       0xb4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0800713c                __ssputs_r
  .text._svfprintf_r
-                0x080072b0      0x1ec c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x080072b0                _svfiprintf_r
-                0x080072b0                _svfprintf_r
+                0x080071f0      0x1ec c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x080071f0                _svfiprintf_r
+                0x080071f0                _svfprintf_r
  .text._printf_common
-                0x0800749c       0xea c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0800749c                _printf_common
- *fill*         0x08007586        0x2 
+                0x080073dc       0xea c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x080073dc                _printf_common
+ *fill*         0x080074c6        0x2 
  .text._printf_i
-                0x08007588      0x224 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08007588                _printf_i
- .text._sbrk_r  0x080077ac       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-sbrkr.o)
-                0x080077ac                _sbrk_r
- *fill*         0x080077cc        0x4 
- .text          0x080077d0       0xa0 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memchr.o)
-                0x080077d0                memchr
- .text.memmove  0x08007870       0x32 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memmove.o)
-                0x08007870                memmove
+                0x080074c8      0x224 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x080074c8                _printf_i
+ .text._sbrk_r  0x080076ec       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-sbrkr.o)
+                0x080076ec                _sbrk_r
+ *fill*         0x0800770c        0x4 
+ .text          0x08007710       0xa0 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memchr.o)
+                0x08007710                memchr
+ .text.memmove  0x080077b0       0x32 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memmove.o)
+                0x080077b0                memmove
  .text.__malloc_lock
-                0x080078a2        0x2 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
-                0x080078a2                __malloc_lock
+                0x080077e2        0x2 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
+                0x080077e2                __malloc_lock
  .text.__malloc_unlock
-                0x080078a4        0x2 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
-                0x080078a4                __malloc_unlock
+                0x080077e4        0x2 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
+                0x080077e4                __malloc_unlock
  .text._realloc_r
-                0x080078a6       0x4c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-reallocr.o)
-                0x080078a6                _realloc_r
+                0x080077e6       0x4c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-reallocr.o)
+                0x080077e6                _realloc_r
  .text._malloc_usable_size_r
-                0x080078f2       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-msizer.o)
-                0x080078f2                _malloc_usable_size_r
- *fill*         0x08007902        0x2 
+                0x08007832       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-msizer.o)
+                0x08007832                _malloc_usable_size_r
+ *fill*         0x08007842        0x2 
  .text._gettimeofday
-                0x08007904       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libnosys.a(gettod.o)
-                0x08007904                _gettimeofday
+                0x08007844       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libnosys.a(gettod.o)
+                0x08007844                _gettimeofday
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.ADC_Init.str1.4
-                0x08007914       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
- *fill*         0x08007942        0x2 
+                0x08007854       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
+ *fill*         0x08007882        0x2 
  .rodata.HAL_NVIC_SetPriorityGrouping.str1.4
-                0x08007944       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
- *fill*         0x08007975        0x3 
+                0x08007884       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
+ *fill*         0x080078b5        0x3 
  .rodata.HAL_DMA_Init.str1.4
-                0x08007978       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
- *fill*         0x080079a6        0x2 
+                0x080078b8       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
+ *fill*         0x080078e6        0x2 
  .rodata.flagBitshiftOffset.11801
-                0x080079a8        0x8 ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
+                0x080078e8        0x8 ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
  .rodata.HAL_GPIO_Init.str1.4
-                0x080079b0       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
- *fill*         0x080079df        0x1 
+                0x080078f0       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+ *fill*         0x0800791f        0x1 
  .rodata.APBAHBPrescTable
-                0x080079e0       0x10 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x080079e0                APBAHBPrescTable
+                0x08007920       0x10 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x08007920                APBAHBPrescTable
  .rodata.HAL_RCC_OscConfig.str1.4
-                0x080079f0       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
- *fill*         0x08007a1e        0x2 
+                0x08007930       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+ *fill*         0x0800795e        0x2 
  .rodata.TIM_OC3_SetConfig.str1.4
-                0x08007a20       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
- *fill*         0x08007a4e        0x2 
+                0x08007960       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+ *fill*         0x0800798e        0x2 
  .rodata.TIM_CCxNChannelCmd.str1.4
-                0x08007a50       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
- *fill*         0x08007a81        0x3 
+                0x08007990       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+ *fill*         0x080079c1        0x3 
  .rodata.dumpExceptionStack.str1.4
-                0x08007a84      0x11a ./system/src/cortexm/exception_handlers.o
- *fill*         0x08007b9e        0x2 
+                0x080079c4      0x11a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x08007ade        0x2 
  .rodata.str1.4
-                0x08007ba0       0x2a ./system/src/cortexm/exception_handlers.o
- *fill*         0x08007bca        0x2 
+                0x08007ae0       0x2a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x08007b0a        0x2 
  .rodata.AHBPrescTable
-                0x08007bcc       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x08007bcc                AHBPrescTable
+                0x08007b0c       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x08007b0c                AHBPrescTable
  .rodata.armBitRevIndexTable_fixed_1024
-                0x08007bdc      0x7c0 ./src/CommonTables/arm_common_tables.o
-                0x08007bdc                armBitRevIndexTable_fixed_1024
+                0x08007b1c      0x7c0 ./src/CommonTables/arm_common_tables.o
+                0x08007b1c                armBitRevIndexTable_fixed_1024
  .rodata.armBitRevIndexTable_fixed_128
-                0x0800839c       0xe0 ./src/CommonTables/arm_common_tables.o
-                0x0800839c                armBitRevIndexTable_fixed_128
+                0x080082dc       0xe0 ./src/CommonTables/arm_common_tables.o
+                0x080082dc                armBitRevIndexTable_fixed_128
  .rodata.armBitRevIndexTable_fixed_16
-                0x0800847c       0x18 ./src/CommonTables/arm_common_tables.o
-                0x0800847c                armBitRevIndexTable_fixed_16
+                0x080083bc       0x18 ./src/CommonTables/arm_common_tables.o
+                0x080083bc                armBitRevIndexTable_fixed_16
  .rodata.armBitRevIndexTable_fixed_2048
-                0x08008494      0xf80 ./src/CommonTables/arm_common_tables.o
-                0x08008494                armBitRevIndexTable_fixed_2048
+                0x080083d4      0xf80 ./src/CommonTables/arm_common_tables.o
+                0x080083d4                armBitRevIndexTable_fixed_2048
  .rodata.armBitRevIndexTable_fixed_256
-                0x08009414      0x1e0 ./src/CommonTables/arm_common_tables.o
-                0x08009414                armBitRevIndexTable_fixed_256
+                0x08009354      0x1e0 ./src/CommonTables/arm_common_tables.o
+                0x08009354                armBitRevIndexTable_fixed_256
  .rodata.armBitRevIndexTable_fixed_32
-                0x080095f4       0x30 ./src/CommonTables/arm_common_tables.o
-                0x080095f4                armBitRevIndexTable_fixed_32
+                0x08009534       0x30 ./src/CommonTables/arm_common_tables.o
+                0x08009534                armBitRevIndexTable_fixed_32
  .rodata.armBitRevIndexTable_fixed_4096
-                0x08009624     0x1f80 ./src/CommonTables/arm_common_tables.o
-                0x08009624                armBitRevIndexTable_fixed_4096
+                0x08009564     0x1f80 ./src/CommonTables/arm_common_tables.o
+                0x08009564                armBitRevIndexTable_fixed_4096
  .rodata.armBitRevIndexTable_fixed_512
-                0x0800b5a4      0x3c0 ./src/CommonTables/arm_common_tables.o
-                0x0800b5a4                armBitRevIndexTable_fixed_512
+                0x0800b4e4      0x3c0 ./src/CommonTables/arm_common_tables.o
+                0x0800b4e4                armBitRevIndexTable_fixed_512
  .rodata.armBitRevIndexTable_fixed_64
-                0x0800b964       0x70 ./src/CommonTables/arm_common_tables.o
-                0x0800b964                armBitRevIndexTable_fixed_64
+                0x0800b8a4       0x70 ./src/CommonTables/arm_common_tables.o
+                0x0800b8a4                armBitRevIndexTable_fixed_64
  .rodata.twiddleCoef_1024_q15
-                0x0800b9d4      0xc00 ./src/CommonTables/arm_common_tables.o
-                0x0800b9d4                twiddleCoef_1024_q15
+                0x0800b914      0xc00 ./src/CommonTables/arm_common_tables.o
+                0x0800b914                twiddleCoef_1024_q15
  .rodata.twiddleCoef_128_q15
-                0x0800c5d4      0x180 ./src/CommonTables/arm_common_tables.o
-                0x0800c5d4                twiddleCoef_128_q15
+                0x0800c514      0x180 ./src/CommonTables/arm_common_tables.o
+                0x0800c514                twiddleCoef_128_q15
  .rodata.twiddleCoef_16_q15
-                0x0800c754       0x30 ./src/CommonTables/arm_common_tables.o
-                0x0800c754                twiddleCoef_16_q15
+                0x0800c694       0x30 ./src/CommonTables/arm_common_tables.o
+                0x0800c694                twiddleCoef_16_q15
  .rodata.twiddleCoef_2048_q15
-                0x0800c784     0x1800 ./src/CommonTables/arm_common_tables.o
-                0x0800c784                twiddleCoef_2048_q15
+                0x0800c6c4     0x1800 ./src/CommonTables/arm_common_tables.o
+                0x0800c6c4                twiddleCoef_2048_q15
  .rodata.twiddleCoef_256_q15
-                0x0800df84      0x300 ./src/CommonTables/arm_common_tables.o
-                0x0800df84                twiddleCoef_256_q15
+                0x0800dec4      0x300 ./src/CommonTables/arm_common_tables.o
+                0x0800dec4                twiddleCoef_256_q15
  .rodata.twiddleCoef_32_q15
-                0x0800e284       0x60 ./src/CommonTables/arm_common_tables.o
-                0x0800e284                twiddleCoef_32_q15
+                0x0800e1c4       0x60 ./src/CommonTables/arm_common_tables.o
+                0x0800e1c4                twiddleCoef_32_q15
  .rodata.twiddleCoef_4096_q15
-                0x0800e2e4     0x3000 ./src/CommonTables/arm_common_tables.o
-                0x0800e2e4                twiddleCoef_4096_q15
+                0x0800e224     0x3000 ./src/CommonTables/arm_common_tables.o
+                0x0800e224                twiddleCoef_4096_q15
  .rodata.twiddleCoef_512_q15
-                0x080112e4      0x600 ./src/CommonTables/arm_common_tables.o
-                0x080112e4                twiddleCoef_512_q15
+                0x08011224      0x600 ./src/CommonTables/arm_common_tables.o
+                0x08011224                twiddleCoef_512_q15
  .rodata.twiddleCoef_64_q15
-                0x080118e4       0xc0 ./src/CommonTables/arm_common_tables.o
-                0x080118e4                twiddleCoef_64_q15
+                0x08011824       0xc0 ./src/CommonTables/arm_common_tables.o
+                0x08011824                twiddleCoef_64_q15
  .rodata.arm_cfft_sR_q15_len1024
-                0x080119a4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119a4                arm_cfft_sR_q15_len1024
+                0x080118e4       0x10 ./src/CommonTables/arm_const_structs.o
+                0x080118e4                arm_cfft_sR_q15_len1024
  .rodata.arm_cfft_sR_q15_len128
-                0x080119b4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119b4                arm_cfft_sR_q15_len128
+                0x080118f4       0x10 ./src/CommonTables/arm_const_structs.o
+                0x080118f4                arm_cfft_sR_q15_len128
  .rodata.arm_cfft_sR_q15_len16
-                0x080119c4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119c4                arm_cfft_sR_q15_len16
+                0x08011904       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011904                arm_cfft_sR_q15_len16
  .rodata.arm_cfft_sR_q15_len2048
-                0x080119d4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119d4                arm_cfft_sR_q15_len2048
+                0x08011914       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011914                arm_cfft_sR_q15_len2048
  .rodata.arm_cfft_sR_q15_len256
-                0x080119e4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119e4                arm_cfft_sR_q15_len256
+                0x08011924       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011924                arm_cfft_sR_q15_len256
  .rodata.arm_cfft_sR_q15_len32
-                0x080119f4       0x10 ./src/CommonTables/arm_const_structs.o
-                0x080119f4                arm_cfft_sR_q15_len32
+                0x08011934       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011934                arm_cfft_sR_q15_len32
  .rodata.arm_cfft_sR_q15_len4096
-                0x08011a04       0x10 ./src/CommonTables/arm_const_structs.o
-                0x08011a04                arm_cfft_sR_q15_len4096
+                0x08011944       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011944                arm_cfft_sR_q15_len4096
  .rodata.arm_cfft_sR_q15_len512
-                0x08011a14       0x10 ./src/CommonTables/arm_const_structs.o
-                0x08011a14                arm_cfft_sR_q15_len512
+                0x08011954       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011954                arm_cfft_sR_q15_len512
  .rodata.arm_cfft_sR_q15_len64
-                0x08011a24       0x10 ./src/CommonTables/arm_const_structs.o
-                0x08011a24                arm_cfft_sR_q15_len64
+                0x08011964       0x10 ./src/CommonTables/arm_const_structs.o
+                0x08011964                arm_cfft_sR_q15_len64
  .rodata.apply_fft.str1.4
-                0x08011a34       0x12 ./src/dsp_func.o
- *fill*         0x08011a46        0x2 
- .rodata        0x08011a48       0x28 ./src/main.o
+                0x08011974       0x12 ./src/dsp_func.o
+ *fill*         0x08011986        0x2 
+ .rodata        0x08011988       0x28 ./src/main.o
  .rodata.MX_ADC1_Init.str1.4
-                0x08011a70        0xe ./src/main.o
- *fill*         0x08011a7e        0x2 
+                0x080119b0        0xe ./src/main.o
+ *fill*         0x080119be        0x2 
  .rodata.str1.4
-                0x08011a80       0x16 ./src/main.o
- *fill*         0x08011a96        0x2 
+                0x080119c0       0x16 ./src/main.o
+ *fill*         0x080119d6        0x2 
  .rodata.HAL_ADC_MspInit.str1.4
-                0x08011a98       0x1b ./src/stm32f4xx_hal_msp.o
- *fill*         0x08011ab3        0x1 
+                0x080119d8       0x1b ./src/stm32f4xx_hal_msp.o
+ *fill*         0x080119f3        0x1 
  .rodata.vTaskStartScheduler.str1.4
-                0x08011ab4        0x8 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x080119f4        0x8 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
                                   0x5 (size before relaxing)
  .rodata.npio2_hw
-                0x08011abc       0x80 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
+                0x080119fc       0x80 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
  .rodata.two_over_pi
-                0x08011b3c      0x108 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
- *fill*         0x08011c44        0x4 
- .rodata.PIo2   0x08011c48       0x40 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
+                0x08011a7c      0x108 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
+ *fill*         0x08011b84        0x4 
+ .rodata.PIo2   0x08011b88       0x40 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
  .rodata.init_jk
-                0x08011c88       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
+                0x08011bc8       0x10 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
  .rodata._svfprintf_r.str1.1
-                0x08011c98       0x11 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08011bd8       0x11 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x08011ca9       0x22 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08011be9       0x22 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x08011ccb        0x0 linker stubs
+ .glue_7        0x08011c0b        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08011ccb        0x0 linker stubs
+ .glue_7t       0x08011c0b        0x0 linker stubs
 
-.vfp11_veneer   0x08011ccc        0x0
- .vfp11_veneer  0x08011ccc        0x0 linker stubs
+.vfp11_veneer   0x08011c0c        0x0
+ .vfp11_veneer  0x08011c0c        0x0 linker stubs
 
-.v4_bx          0x08011ccc        0x0
- .v4_bx         0x08011ccc        0x0 linker stubs
+.v4_bx          0x08011c0c        0x0
+ .v4_bx         0x08011c0c        0x0 linker stubs
 
-.iplt           0x08011ccc        0x0
- .iplt          0x08011ccc        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.iplt           0x08011c0c        0x0
+ .iplt          0x08011c0c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
-.rel.dyn        0x08011ccc        0x0
- .rel.iplt      0x08011ccc        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.rel.dyn        0x08011c0c        0x0
+ .rel.iplt      0x08011c0c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08011ccc                . = ALIGN (0x4)
-                0x08011ccc                __exidx_start = .
+                0x08011c0c                . = ALIGN (0x4)
+                0x08011c0c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08011ccc                __exidx_end = .
-                0x08011ccc                . = ALIGN (0x4)
-                0x08011ccc                _etext = .
-                0x08011ccc                __etext = .
+                0x08011c0c                __exidx_end = .
+                0x08011c0c                . = ALIGN (0x4)
+                0x08011c0c                _etext = .
+                0x08011c0c                __etext = .
 
-.data_CCMRAM    0x10000000        0x0 load address 0x08011ccc
+.data_CCMRAM    0x10000000        0x0 load address 0x08011c0c
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x10000000                . = ALIGN (0x4)
-                0x08011ccc                _sidata = LOADADDR (.data)
+                0x08011c0c                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x84 load address 0x08011ccc
+.data           0x20000000       0x84 load address 0x08011c0c
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -13115,7 +13116,7 @@ END GROUP
  .data.SystemCoreClock
                 0x2000000c        0x4 ./system/src/cmsis/system_stm32f4xx.o
                 0x2000000c                SystemCoreClock
- .data.cur_freq.12502
+ .data.cur_freq.12495
                 0x20000010        0x4 ./src/main.o
  .data.work_with
                 0x20000014        0x1 ./src/main.o
@@ -13134,13 +13135,13 @@ END GROUP
                 0x20000084                _edata = .
                 0x20000084                __data_end__ = .
 
-.igot.plt       0x20000084        0x0 load address 0x08011d50
+.igot.plt       0x20000084        0x0 load address 0x08011c90
  .igot.plt      0x20000084        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .bss_CCMRAM     0x10000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x20000084     0xdfbc
+.bss            0x20000084     0xdf88
                 0x20000084                __bss_start__ = .
                 0x20000084                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -13154,120 +13155,119 @@ END GROUP
  .bss.buf.6480  0x20000090       0x80 ./system/src/diag/Trace.o
  .bss.ADCTaskHandle
                 0x20000110        0x4 ./src/main.o
- .bss.adc_counter
-                0x20000114        0x4 ./src/main.o
-                0x20000114                adc_counter
- .bss.average   0x20000118        0x4 ./src/main.o
-                0x20000118                average
+ .bss.average   0x20000114        0x4 ./src/main.o
+                0x20000114                average
  .bss.indicatorTaskHandle
-                0x2000011c        0x4 ./src/main.o
- .bss.maxAmp    0x20000120        0x4 ./src/main.o
-                0x20000120                maxAmp
- .bss.maxIndex  0x20000124        0x4 ./src/main.o
-                0x20000124                maxIndex
- .bss.state.12514
-                0x20000128        0x4 ./src/main.o
- .bss.pxEnd     0x2000012c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .bss.ucHeap    0x20000130     0x3c00 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x20000118        0x4 ./src/main.o
+ .bss.maxAmp    0x2000011c        0x4 ./src/main.o
+                0x2000011c                maxAmp
+ .bss.maxIndex  0x20000120        0x4 ./src/main.o
+                0x20000120                maxIndex
+ .bss.state.12507
+                0x20000124        0x4 ./src/main.o
+ .bss.pxEnd     0x20000128        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .bss.ucHeap    0x2000012c     0x3c00 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .bss.xBlockAllocatedBit
-                0x20003d30        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x20003d2c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .bss.xFreeBytesRemaining
-                0x20003d34        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x20003d30        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .bss.xMinimumEverFreeBytesRemaining
-                0x20003d38        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .bss.xStart    0x20003d3c        0x8 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x20003d34        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .bss.xStart    0x20003d38        0x8 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .bss.ucMaxSysCallPriority
-                0x20003d44        0x1 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- *fill*         0x20003d45        0x3 
+                0x20003d40        0x1 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ *fill*         0x20003d41        0x3 
  .bss.ulMaxPRIGROUPValue
-                0x20003d48        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x20003d44        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .bss.pxCurrentTCB
-                0x20003d4c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                0x20003d4c                pxCurrentTCB
+                0x20003d48        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003d48                pxCurrentTCB
  .bss.pxDelayedTaskList
-                0x20003d50        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003d4c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.pxOverflowDelayedTaskList
-                0x20003d54        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003d50        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.pxReadyTasksLists
-                0x20003d58       0x8c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003d54       0x8c ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxCurrentNumberOfTasks
-                0x20003de4        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003de0        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxDeletedTasksWaitingCleanUp
-                0x20003de8        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003de4        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxPendedTicks
-                0x20003dec        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003de8        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxSchedulerSuspended
-                0x20003df0        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003dec        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxTaskNumber
-                0x20003df4        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003df0        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.uxTopReadyPriority
-                0x20003df8        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003df4        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xDelayedTaskList1
-                0x20003dfc       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003df8       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xDelayedTaskList2
-                0x20003e10       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e0c       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xIdleTaskHandle
-                0x20003e24        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e20        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xNextTaskUnblockTime
-                0x20003e28        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e24        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xNumOfOverflows
-                0x20003e2c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e28        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xPendingReadyList
-                0x20003e30       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e2c       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xSchedulerRunning
-                0x20003e44        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e40        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xSuspendedTaskList
-                0x20003e48       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e44       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xTasksWaitingTermination
-                0x20003e5c       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e58       0x14 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xTickCount
-                0x20003e70        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e6c        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.xYieldPending
-                0x20003e74        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x20003e70        0x4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .bss.__malloc_free_list
-                0x20003e78        0x4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20003e78                __malloc_free_list
+                0x20003e74        0x4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20003e74                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x20003e7c        0x4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20003e7c                __malloc_sbrk_start
+                0x20003e78        0x4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20003e78                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x20003e80        0x4 ./system/src/stm32f4-hal/stm32f4xx_hal.o
-                0x20003e80                uwTick
- COMMON         0x20003e84        0x4 ./system/src/newlib/_syscalls.o
-                0x20003e84                errno
- COMMON         0x20003e88     0xa178 ./src/main.o
-                0x20003e88                cur_buffer_i
-                0x20003e8c                htim3
-                0x20003ec8                hadc1
-                0x20003f10                hdma_adc1
-                0x20003f70                adc_buffer
-                0x2000bfc0                htim2
-                0x2000bffc                cur_buffer_q15
-                0x2000c000                mag_buffer
- COMMON         0x2000e000       0x3c ./src/stm32f4xx_hal_timebase_TIM.o
-                0x2000e000                htim1
+ COMMON         0x20003e7c        0x4 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+                0x20003e7c                uwTick
+ COMMON         0x20003e80        0x4 ./system/src/newlib/_syscalls.o
+                0x20003e80                errno
+ COMMON         0x20003e84     0xa148 ./src/main.o
+                0x20003e84                cur_buffer_i
+                0x20003e88                ticks3
+                0x20003e8c                ticks1
+                0x20003e90                htim3
+                0x20003ecc                hadc1
+                0x20003f14                hdma_adc1
+                0x20003f74                adc_buffer
+                0x2000bfc4                ticks2
+                0x2000bfc8                cur_buffer_q15
+                0x2000bfcc                mag_buffer
+ COMMON         0x2000dfcc       0x3c ./src/stm32f4xx_hal_timebase_TIM.o
+                0x2000dfcc                htim1
  *(.bss_end .bss_end.*)
- .bss_end       0x2000e03c        0x4 ./system/src/newlib/_startup.o
-                0x2000e040                . = ALIGN (0x4)
-                0x2000e040                __bss_end__ = .
-                0x2000e040                _ebss = .
+ .bss_end       0x2000e008        0x4 ./system/src/newlib/_startup.o
+                0x2000e00c                . = ALIGN (0x4)
+                0x2000e00c                __bss_end__ = .
+                0x2000e00c                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x2000e040        0x0
-                0x2000e040                _noinit = .
+.noinit         0x2000e00c        0x0
+                0x2000e00c                _noinit = .
  *(.noinit .noinit.*)
-                0x2000e040                . = ALIGN (0x4)
-                0x2000e040                _end_noinit = .
+                0x2000e00c                . = ALIGN (0x4)
+                0x2000e00c                _end_noinit = .
                 [!provide]                PROVIDE (end, _end_noinit)
                 [!provide]                PROVIDE (_end, _end_noinit)
                 [!provide]                PROVIDE (__end, _end_noinit)
                 [!provide]                PROVIDE (__end__, _end_noinit)
 
-._check_stack   0x2000e040      0x100
-                0x2000e140                . = (. + _Minimum_Stack_Size)
- *fill*         0x2000e040      0x100 
+._check_stack   0x2000e00c      0x100
+                0x2000e10c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x2000e00c      0x100 
 
 .b1text
  *(.b1text)
@@ -13511,7 +13511,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000     0x1280
+.debug_aranges  0x00000000     0x1270
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0xc0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -13572,28 +13572,28 @@ END GROUP
  .debug_aranges
                 0x00000c50       0x40 ./src/dsp_func.o
  .debug_aranges
-                0x00000c90       0x90 ./src/main.o
+                0x00000c90       0x88 ./src/main.o
  .debug_aranges
-                0x00000d20       0x40 ./src/stm32f4xx_hal_msp.o
+                0x00000d18       0x40 ./src/stm32f4xx_hal_msp.o
  .debug_aranges
-                0x00000d60       0x30 ./src/stm32f4xx_hal_timebase_TIM.o
+                0x00000d58       0x30 ./src/stm32f4xx_hal_timebase_TIM.o
  .debug_aranges
-                0x00000d90       0x78 ./src/stm32f4xx_it.o
+                0x00000d88       0x70 ./src/stm32f4xx_it.o
  .debug_aranges
-                0x00000e08       0x50 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                0x00000df8       0x50 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .debug_aranges
-                0x00000e58       0x80 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                0x00000e48       0x80 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .debug_aranges
-                0x00000ed8      0x1d8 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                0x00000ec8      0x1d8 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
  .debug_aranges
-                0x000010b0       0x40 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                0x000010a0       0x40 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
  .debug_aranges
-                0x000010f0      0x190 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                0x000010e0      0x190 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x3957f
+.debug_info     0x00000000    0x3941e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x1a79 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_info    0x00001a79     0x2390 ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
@@ -13624,17 +13624,17 @@ END GROUP
  .debug_info    0x00023edf     0x16e7 ./src/CommonTables/arm_const_structs.o
  .debug_info    0x000255c6      0x170 ./src/FIRFilter.o
  .debug_info    0x00025736     0x1627 ./src/dsp_func.o
- .debug_info    0x00026d5d     0x2dd4 ./src/main.o
- .debug_info    0x00029b31     0x2191 ./src/stm32f4xx_hal_msp.o
- .debug_info    0x0002bcc2     0x1ce3 ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_info    0x0002d9a5     0x1b31 ./src/stm32f4xx_it.o
- .debug_info    0x0002f4d6     0x1601 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_info    0x00030ad7     0x16e1 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_info    0x000321b8     0x2ccc ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_info    0x00034e84     0x1468 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_info    0x000362ec     0x3293 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_info    0x00026d5d     0x2d1d ./src/main.o
+ .debug_info    0x00029a7a     0x2132 ./src/stm32f4xx_hal_msp.o
+ .debug_info    0x0002bbac     0x1ce3 ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_info    0x0002d88f     0x1ae6 ./src/stm32f4xx_it.o
+ .debug_info    0x0002f375     0x1601 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_info    0x00030976     0x16e1 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_info    0x00032057     0x2ccc ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_info    0x00034d23     0x1468 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_info    0x0003618b     0x3293 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
-.debug_abbrev   0x00000000     0x6176
+.debug_abbrev   0x00000000     0x6164
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x347 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_abbrev  0x00000347      0x33c ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
@@ -13665,17 +13665,17 @@ END GROUP
  .debug_abbrev  0x00003fc2      0x1eb ./src/CommonTables/arm_const_structs.o
  .debug_abbrev  0x000041ad      0x117 ./src/FIRFilter.o
  .debug_abbrev  0x000042c4      0x2c1 ./src/dsp_func.o
- .debug_abbrev  0x00004585      0x396 ./src/main.o
- .debug_abbrev  0x0000491b      0x28c ./src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x00004ba7      0x2b5 ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_abbrev  0x00004e5c      0x24b ./src/stm32f4xx_it.o
- .debug_abbrev  0x000050a7      0x33d ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_abbrev  0x000053e4      0x364 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_abbrev  0x00005748      0x3f0 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_abbrev  0x00005b38      0x24a ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_abbrev  0x00005d82      0x3f4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_abbrev  0x00004585      0x389 ./src/main.o
+ .debug_abbrev  0x0000490e      0x28c ./src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x00004b9a      0x2b5 ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_abbrev  0x00004e4f      0x246 ./src/stm32f4xx_it.o
+ .debug_abbrev  0x00005095      0x33d ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_abbrev  0x000053d2      0x364 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_abbrev  0x00005736      0x3f0 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_abbrev  0x00005b26      0x24a ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_abbrev  0x00005d70      0x3f4 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
-.debug_line     0x00000000    0x139f8
+.debug_line     0x00000000    0x139ab
  *(.debug_line)
  .debug_line    0x00000000      0x8dc ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_line    0x000008dc      0xde3 ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
@@ -13705,18 +13705,18 @@ END GROUP
  .debug_line    0x0000d933      0x374 ./src/CommonTables/arm_common_tables.o
  .debug_line    0x0000dca7      0x379 ./src/CommonTables/arm_const_structs.o
  .debug_line    0x0000e020      0x1e1 ./src/FIRFilter.o
- .debug_line    0x0000e201      0x5f7 ./src/dsp_func.o
- .debug_line    0x0000e7f8      0xaae ./src/main.o
- .debug_line    0x0000f2a6      0x7ca ./src/stm32f4xx_hal_msp.o
- .debug_line    0x0000fa70      0x77a ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_line    0x000101ea      0x984 ./src/stm32f4xx_it.o
- .debug_line    0x00010b6e      0x6d0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_line    0x0001123e      0x6fc ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_line    0x0001193a      0xc27 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_line    0x00012561      0x61d ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_line    0x00012b7e      0xe7a ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_line    0x0000e201      0x5f3 ./src/dsp_func.o
+ .debug_line    0x0000e7f4      0xa8a ./src/main.o
+ .debug_line    0x0000f27e      0x7b7 ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x0000fa35      0x77a ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_line    0x000101af      0x972 ./src/stm32f4xx_it.o
+ .debug_line    0x00010b21      0x6d0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_line    0x000111f1      0x6fc ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_line    0x000118ed      0xc27 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_line    0x00012514      0x61d ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_line    0x00012b31      0xe7a ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
-.debug_frame    0x00000000     0x3800
+.debug_frame    0x00000000     0x37c4
  *(.debug_frame)
  .debug_frame   0x00000000      0x188 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_frame   0x00000188      0x2a0 ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
@@ -13743,127 +13743,127 @@ END GROUP
  .debug_frame   0x00001ed8       0x30 ./src/ComplexMathFunctions/arm_cmplx_mag_q15.o
  .debug_frame   0x00001f08       0x50 ./src/FIRFilter.o
  .debug_frame   0x00001f58       0xb4 ./src/dsp_func.o
- .debug_frame   0x0000200c      0x1a8 ./src/main.o
- .debug_frame   0x000021b4       0x9c ./src/stm32f4xx_hal_msp.o
- .debug_frame   0x00002250       0x50 ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_frame   0x000022a0      0x100 ./src/stm32f4xx_it.o
- .debug_frame   0x000023a0       0xac ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_frame   0x0000244c       0xf0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_frame   0x0000253c      0x584 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_frame   0x00002ac0       0x6c ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_frame   0x00002b2c      0x4d0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
- .debug_frame   0x00002ffc       0x3c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_sin.o)
- .debug_frame   0x00003038       0x44 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
- .debug_frame   0x0000307c       0x6c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_cos.o)
- .debug_frame   0x000030e8       0x58 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
- .debug_frame   0x00003140       0x68 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_sin.o)
- .debug_frame   0x000031a8       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_fabs.o)
- .debug_frame   0x000031c8       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_floor.o)
- .debug_frame   0x000031f8       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_scalbn.o)
- .debug_frame   0x00003224       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_copysign.o)
- .debug_frame   0x00003244       0xac c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x000032f0       0x50 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00003340       0xc4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00003404       0x24 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_fixdfsi.o)
- .debug_frame   0x00003428       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-abs.o)
- .debug_frame   0x00003448       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00003468       0x28 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00003490       0x48 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
- .debug_frame   0x000034d8       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-time.o)
- .debug_frame   0x00003504       0x4c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
- .debug_frame   0x00003550       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
- .debug_frame   0x0000357c       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-malloc.o)
- .debug_frame   0x000035ac       0x38 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x000035e4       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00003610       0x90 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x000036a0       0x60 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x00003700       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000372c       0x28 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x00003754       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x00003784       0x3c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x000037c0       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x000037e0       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libnosys.a(gettod.o)
+ .debug_frame   0x0000200c      0x188 ./src/main.o
+ .debug_frame   0x00002194       0x98 ./src/stm32f4xx_hal_msp.o
+ .debug_frame   0x0000222c       0x50 ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_frame   0x0000227c       0xe8 ./src/stm32f4xx_it.o
+ .debug_frame   0x00002364       0xac ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_frame   0x00002410       0xf0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_frame   0x00002500      0x584 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_frame   0x00002a84       0x6c ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_frame   0x00002af0      0x4d0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_frame   0x00002fc0       0x3c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_sin.o)
+ .debug_frame   0x00002ffc       0x44 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-e_rem_pio2.o)
+ .debug_frame   0x00003040       0x6c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_cos.o)
+ .debug_frame   0x000030ac       0x58 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_rem_pio2.o)
+ .debug_frame   0x00003104       0x68 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-k_sin.o)
+ .debug_frame   0x0000316c       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_fabs.o)
+ .debug_frame   0x0000318c       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_floor.o)
+ .debug_frame   0x000031bc       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_scalbn.o)
+ .debug_frame   0x000031e8       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_copysign.o)
+ .debug_frame   0x00003208       0xac c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x000032b4       0x50 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00003304       0xc4 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x000033c8       0x24 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x000033ec       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-abs.o)
+ .debug_frame   0x0000340c       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000342c       0x28 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00003454       0x48 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-rand.o)
+ .debug_frame   0x0000349c       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-time.o)
+ .debug_frame   0x000034c8       0x4c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-vsnprintf.o)
+ .debug_frame   0x00003514       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
+ .debug_frame   0x00003540       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-malloc.o)
+ .debug_frame   0x00003570       0x38 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x000035a8       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x000035d4       0x90 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x00003664       0x60 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x000036c4       0x2c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x000036f0       0x28 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00003718       0x30 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00003748       0x3c c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x00003784       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x000037a4       0x20 c:/users/niokr/appdata/roaming/gnu tools arm embedded/7 2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libnosys.a(gettod.o)
 
-.debug_str      0x00000000    0x96432
+.debug_str      0x00000000    0x96425
  *(.debug_str)
- .debug_str     0x00000000    0x88bb5 ./system/src/stm32f4-hal/stm32f4xx_hal.o
-                              0x890b0 (size before relaxing)
- .debug_str     0x00088bb5      0x64a ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
-                              0x88dbd (size before relaxing)
- .debug_str     0x000891ff      0x2d5 ./system/src/stm32f4-hal/stm32f4xx_hal_adc_ex.o
-                              0x88e0c (size before relaxing)
- .debug_str     0x000894d4      0x364 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
-                              0x88f09 (size before relaxing)
- .debug_str     0x00089838      0x2f5 ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
-                              0x88c18 (size before relaxing)
- .debug_str     0x00089b2d      0x2d8 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
-                              0x88a93 (size before relaxing)
- .debug_str     0x00089e05      0x393 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                              0x88c21 (size before relaxing)
- .debug_str     0x0008a198      0xe61 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
-                              0x89829 (size before relaxing)
- .debug_str     0x0008aff9      0x4e2 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
-                              0x890e1 (size before relaxing)
- .debug_str     0x0008b4db     0x1013 ./system/src/newlib/_exit.o
+ .debug_str     0x00000000    0x88bb6 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+                              0x890b1 (size before relaxing)
+ .debug_str     0x00088bb6      0x64a ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
+                              0x88dbe (size before relaxing)
+ .debug_str     0x00089200      0x2d5 ./system/src/stm32f4-hal/stm32f4xx_hal_adc_ex.o
+                              0x88e0d (size before relaxing)
+ .debug_str     0x000894d5      0x364 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
+                              0x88f0a (size before relaxing)
+ .debug_str     0x00089839      0x2f5 ./system/src/stm32f4-hal/stm32f4xx_hal_dma.o
+                              0x88c19 (size before relaxing)
+ .debug_str     0x00089b2e      0x2d8 ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+                              0x88a94 (size before relaxing)
+ .debug_str     0x00089e06      0x393 ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                              0x88c22 (size before relaxing)
+ .debug_str     0x0008a199      0xe61 ./system/src/stm32f4-hal/stm32f4xx_hal_tim.o
+                              0x8982a (size before relaxing)
+ .debug_str     0x0008affa      0x4e2 ./system/src/stm32f4-hal/stm32f4xx_hal_tim_ex.o
+                              0x890e2 (size before relaxing)
+ .debug_str     0x0008b4dc     0x1013 ./system/src/newlib/_exit.o
                                0x7f14 (size before relaxing)
- .debug_str     0x0008c4ee      0x375 ./system/src/newlib/_sbrk.o
+ .debug_str     0x0008c4ef      0x375 ./system/src/newlib/_sbrk.o
                                0x72c6 (size before relaxing)
- .debug_str     0x0008c863      0x2c6 ./system/src/newlib/_startup.o
+ .debug_str     0x0008c864      0x2c6 ./system/src/newlib/_startup.o
                                0x6a67 (size before relaxing)
- .debug_str     0x0008cb29      0xd92 ./system/src/newlib/_syscalls.o
+ .debug_str     0x0008cb2a      0xd92 ./system/src/newlib/_syscalls.o
                                0x81a1 (size before relaxing)
- .debug_str     0x0008d8bb      0x16a ./system/src/diag/Trace.o
+ .debug_str     0x0008d8bc      0x16a ./system/src/diag/Trace.o
                                0x868c (size before relaxing)
- .debug_str     0x0008da25      0x389 ./system/src/diag/trace_impl.o
-                              0x899af (size before relaxing)
- .debug_str     0x0008ddae       0x5e ./system/src/cortexm/_initialize_hardware.o
-                              0x88739 (size before relaxing)
- .debug_str     0x0008de0c      0x182 ./system/src/cortexm/exception_handlers.o
-                              0x89b03 (size before relaxing)
- .debug_str     0x0008df8e       0x39 ./system/src/cmsis/startup_stm32f401xe.o
+ .debug_str     0x0008da26      0x389 ./system/src/diag/trace_impl.o
+                              0x899b0 (size before relaxing)
+ .debug_str     0x0008ddaf       0x5e ./system/src/cortexm/_initialize_hardware.o
+                              0x8873a (size before relaxing)
+ .debug_str     0x0008de0d      0x182 ./system/src/cortexm/exception_handlers.o
+                              0x89b04 (size before relaxing)
+ .debug_str     0x0008df8f       0x39 ./system/src/cmsis/startup_stm32f401xe.o
                                  0x71 (size before relaxing)
- .debug_str     0x0008dfc7       0x46 ./system/src/cmsis/system_stm32f4xx.o
-                              0x8880c (size before relaxing)
- .debug_str     0x0008e00d       0x2d ./src/TransformFunctions/arm_bitreversal2.o
+ .debug_str     0x0008dfc8       0x46 ./system/src/cmsis/system_stm32f4xx.o
+                              0x8880d (size before relaxing)
+ .debug_str     0x0008e00e       0x2d ./src/TransformFunctions/arm_bitreversal2.o
                                  0x74 (size before relaxing)
- .debug_str     0x0008e03a       0xea ./src/TransformFunctions/arm_cfft_q15.o
+ .debug_str     0x0008e03b       0xea ./src/TransformFunctions/arm_cfft_q15.o
                                0x80c6 (size before relaxing)
- .debug_str     0x0008e124       0xb9 ./src/TransformFunctions/arm_cfft_radix4_q15.o
+ .debug_str     0x0008e125       0xb9 ./src/TransformFunctions/arm_cfft_radix4_q15.o
                                0x80c9 (size before relaxing)
- .debug_str     0x0008e1dd       0x66 ./src/StatisticsFunctions/arm_max_q15.o
+ .debug_str     0x0008e1de       0x66 ./src/StatisticsFunctions/arm_max_q15.o
                                0x7fe8 (size before relaxing)
- .debug_str     0x0008e243      0x117 ./src/FastMathFunctions/arm_sqrt_q15.o
+ .debug_str     0x0008e244      0x117 ./src/FastMathFunctions/arm_sqrt_q15.o
                                0x89b1 (size before relaxing)
- .debug_str     0x0008e35a       0x74 ./src/ComplexMathFunctions/arm_cmplx_mag_q15.o
+ .debug_str     0x0008e35b       0x74 ./src/ComplexMathFunctions/arm_cmplx_mag_q15.o
                                0x8011 (size before relaxing)
- .debug_str     0x0008e3ce       0x28 ./src/CommonTables/arm_common_tables.o
+ .debug_str     0x0008e3cf       0x28 ./src/CommonTables/arm_common_tables.o
                                0x88b5 (size before relaxing)
- .debug_str     0x0008e3f6      0x39c ./src/CommonTables/arm_const_structs.o
+ .debug_str     0x0008e3f7      0x39c ./src/CommonTables/arm_const_structs.o
                                0x8f29 (size before relaxing)
- .debug_str     0x0008e792       0x6d ./src/FIRFilter.o
-                               0x3a32 (size before relaxing)
- .debug_str     0x0008e7ff       0xbf ./src/dsp_func.o
-                               0xa138 (size before relaxing)
- .debug_str     0x0008e8be     0x54ef ./src/main.o
-                              0x8ea87 (size before relaxing)
- .debug_str     0x00093dad       0x25 ./src/stm32f4xx_hal_msp.o
-                              0x89205 (size before relaxing)
- .debug_str     0x00093dd2       0x61 ./src/stm32f4xx_hal_timebase_TIM.o
-                              0x8908e (size before relaxing)
- .debug_str     0x00093e33       0x8a ./src/stm32f4xx_it.o
-                              0x8df59 (size before relaxing)
- .debug_str     0x00093ebd      0x2fe ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
-                               0xd480 (size before relaxing)
- .debug_str     0x000941bb      0x874 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
-                               0xda71 (size before relaxing)
- .debug_str     0x00094a2f      0x926 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
-                               0xfaa3 (size before relaxing)
- .debug_str     0x00095355      0x13d ./Middlewares/Third_Party/FreeRTOS/Source/list.o
-                               0xcd4a (size before relaxing)
- .debug_str     0x00095492      0xfa0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
-                               0xed9a (size before relaxing)
+ .debug_str     0x0008e793       0x6d ./src/FIRFilter.o
+                               0x3a33 (size before relaxing)
+ .debug_str     0x0008e800       0xbf ./src/dsp_func.o
+                               0xa139 (size before relaxing)
+ .debug_str     0x0008e8bf     0x54f1 ./src/main.o
+                              0x8ea82 (size before relaxing)
+ .debug_str     0x00093db0       0x25 ./src/stm32f4xx_hal_msp.o
+                              0x89206 (size before relaxing)
+ .debug_str     0x00093dd5       0x61 ./src/stm32f4xx_hal_timebase_TIM.o
+                              0x8908f (size before relaxing)
+ .debug_str     0x00093e36       0x7a ./src/stm32f4xx_it.o
+                              0x8df2d (size before relaxing)
+ .debug_str     0x00093eb0      0x2fe ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+                               0xd481 (size before relaxing)
+ .debug_str     0x000941ae      0x874 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+                               0xda72 (size before relaxing)
+ .debug_str     0x00094a22      0x926 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+                               0xfaa4 (size before relaxing)
+ .debug_str     0x00095348      0x13d ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+                               0xcd4b (size before relaxing)
+ .debug_str     0x00095485      0xfa0 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+                               0xed9b (size before relaxing)
 
-.debug_loc      0x00000000     0xc8ba
+.debug_loc      0x00000000     0xc878
  *(.debug_loc)
  .debug_loc     0x00000000       0x92 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_loc     0x00000092      0x75a ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
@@ -13888,14 +13888,14 @@ END GROUP
  .debug_loc     0x00009b37       0xfd ./src/ComplexMathFunctions/arm_cmplx_mag_q15.o
  .debug_loc     0x00009c34      0x12f ./src/FIRFilter.o
  .debug_loc     0x00009d63      0x3d9 ./src/dsp_func.o
- .debug_loc     0x0000a13c      0x161 ./src/main.o
- .debug_loc     0x0000a29d       0xb2 ./src/stm32f4xx_hal_msp.o
- .debug_loc     0x0000a34f       0x6a ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_loc     0x0000a3b9      0x2a0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_loc     0x0000a659       0xdc ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_loc     0x0000a735      0xee1 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_loc     0x0000b616       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_loc     0x0000b686     0x1234 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_loc     0x0000a13c      0x12c ./src/main.o
+ .debug_loc     0x0000a268       0xa5 ./src/stm32f4xx_hal_msp.o
+ .debug_loc     0x0000a30d       0x6a ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_loc     0x0000a377      0x2a0 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_loc     0x0000a617       0xdc ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_loc     0x0000a6f3      0xee1 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_loc     0x0000b5d4       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_loc     0x0000b644     0x1234 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -13913,7 +13913,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(Cardio_Nucleo002.elf elf32-littlearm)
 
-.debug_ranges   0x00000000     0x1188
+.debug_ranges   0x00000000     0x1178
  .debug_ranges  0x00000000       0xb0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_ranges  0x000000b0       0xd8 ./system/src/stm32f4-hal/stm32f4xx_hal_adc.o
  .debug_ranges  0x00000188       0x80 ./system/src/stm32f4-hal/stm32f4xx_hal_adc_ex.o
@@ -13940,15 +13940,15 @@ OUTPUT(Cardio_Nucleo002.elf elf32-littlearm)
  .debug_ranges  0x00000b38       0x10 ./src/ComplexMathFunctions/arm_cmplx_mag_q15.o
  .debug_ranges  0x00000b48       0x20 ./src/FIRFilter.o
  .debug_ranges  0x00000b68       0x30 ./src/dsp_func.o
- .debug_ranges  0x00000b98       0x80 ./src/main.o
- .debug_ranges  0x00000c18       0x30 ./src/stm32f4xx_hal_msp.o
- .debug_ranges  0x00000c48       0x20 ./src/stm32f4xx_hal_timebase_TIM.o
- .debug_ranges  0x00000c68       0x68 ./src/stm32f4xx_it.o
- .debug_ranges  0x00000cd0       0x40 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_ranges  0x00000d10       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_ranges  0x00000d80      0x1c8 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_ranges  0x00000f48       0x30 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_ranges  0x00000f78      0x210 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_ranges  0x00000b98       0x78 ./src/main.o
+ .debug_ranges  0x00000c10       0x30 ./src/stm32f4xx_hal_msp.o
+ .debug_ranges  0x00000c40       0x20 ./src/stm32f4xx_hal_timebase_TIM.o
+ .debug_ranges  0x00000c60       0x60 ./src/stm32f4xx_it.o
+ .debug_ranges  0x00000cc0       0x40 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_ranges  0x00000d00       0x70 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_ranges  0x00000d70      0x1c8 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_ranges  0x00000f38       0x30 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_ranges  0x00000f68      0x210 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
 
 .debug_macro    0x00000000    0x1d0ce
  .debug_macro   0x00000000      0x464 ./system/src/stm32f4-hal/stm32f4xx_hal.o
